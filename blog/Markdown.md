@@ -188,7 +188,7 @@ Typora now supports [YAML Front Matter](http://jekyllrb.com/docs/frontmatter/). 
 
 ### Table of Contents (TOC)
 
-Input `[toc]` and press the `Return` key. This will create a  “Table of Contents” section. The TOC extracts all headers from the document, and its contents are updated automatically as you add to the paper.
+Input `[toc]` and press the `Return` key. This action will create a “Table of Contents” section. The TOC extracts all headers from the document, and its contents are updated automatically as you add to the paper.
 
 ## Span Elements
 

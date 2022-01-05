@@ -1,6 +1,8 @@
-# <img src="http://diegocarvalho.org/logbook/144990ae105c40666baa32bfe98eaa97.jpg" alt="62008924_10157424946287728_8205195673641943040_o" style="zoom:5%;" />Página pessoal de Diego Carvalho
+# Página pessoal de Diego Carvalho
 
 ---
+
+<img src="http://diegocarvalho.org/logbook/144990ae105c40666baa32bfe98eaa97.jpg" alt="62008924_10157424946287728_8205195673641943040_o" style="zoom:10%;" />
 
 Bem-vindo à minha página pessoal. Eu sou professor do Departamento de Engenharia de Produção ([DEPRO](http://depro.cefet-rj.br/)) do Centro Federal de Educação Tecnologica Celso Suckow da Fonseca ([CEFET/RJ](http://www.cefet-rj.br/)). Fiz graduação em Engenharia de Produção na Escola Politécnica da Universidade Federal do Rio de Janeiro ([POLI](http://www.poli.ufrj.br/) da [UFRJ](http://www.ufrj.br/)) e o meu Mestrado e Doutorado no Programa de Engenharia de Sistemas e Ciência da Computação da COPPE – Instituto Alberto Luiz Coimbra de Pós-Graduação e Pesquisa de Engenharia ([PESC/COPPE](http://www.cos.ufrj.br/)).
 
