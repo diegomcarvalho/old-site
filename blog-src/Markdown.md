@@ -401,5 +401,7 @@ You can find more details [here](https://support.typora.io/HTML/).
 
 # An image to test
 
+Let's check how it works with an github external image...
+
 ![248933363_231684145619991_6355789806557214126_n](http://diegocarvalho.org/logbook/74eceb023c50c9d9d553a26fe2b0f239.jpg)
 
