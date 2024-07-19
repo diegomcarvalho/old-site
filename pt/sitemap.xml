@@ -2,325 +2,325 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://diegocarvalho.org/pt/</loc>
+    <loc>https://diegomcarvalho.github.io/pt/</loc>
     <lastmod>2030-06-01T13:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
-                hreflang="en"
-                href="https://diegocarvalho.org/en/"
+                hreflang="en-us"
+                href="https://diegomcarvalho.github.io/en/"
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="pt"
-                href="https://diegocarvalho.org/pt/"
+                hreflang="pt-br"
+                href="https://diegomcarvalho.github.io/pt/"
                 />
   </url><url>
-    <loc>https://diegocarvalho.org/pt/talk/example-talk/</loc>
+    <loc>https://diegomcarvalho.github.io/pt/talk/example-talk/</loc>
     <lastmod>2030-06-01T13:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
-                hreflang="en"
-                href="https://diegocarvalho.org/en/talk/example-talk/"
+                hreflang="en-us"
+                href="https://diegomcarvalho.github.io/en/talk/example-talk/"
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="pt"
-                href="https://diegocarvalho.org/pt/talk/example-talk/"
+                hreflang="pt-br"
+                href="https://diegomcarvalho.github.io/pt/talk/example-talk/"
                 />
   </url><url>
-    <loc>https://diegocarvalho.org/pt/event/</loc>
+    <loc>https://diegomcarvalho.github.io/pt/event/</loc>
     <lastmod>2030-06-01T13:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
-                hreflang="en"
-                href="https://diegocarvalho.org/en/event/"
+                hreflang="en-us"
+                href="https://diegomcarvalho.github.io/en/event/"
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="pt"
-                href="https://diegocarvalho.org/pt/event/"
+                hreflang="pt-br"
+                href="https://diegomcarvalho.github.io/pt/event/"
                 />
   </url><url>
-    <loc>https://diegocarvalho.org/pt/tag/academic/</loc>
+    <loc>https://diegomcarvalho.github.io/pt/tag/academic/</loc>
     <lastmod>2022-09-05T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
-                hreflang="en"
-                href="https://diegocarvalho.org/en/tag/academic/"
+                hreflang="en-us"
+                href="https://diegomcarvalho.github.io/en/tag/academic/"
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="pt"
-                href="https://diegocarvalho.org/pt/tag/academic/"
+                hreflang="pt-br"
+                href="https://diegomcarvalho.github.io/pt/tag/academic/"
                 />
   </url><url>
-    <loc>https://diegocarvalho.org/pt/categories/</loc>
+    <loc>https://diegomcarvalho.github.io/pt/categories/</loc>
     <lastmod>2022-09-05T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
-                hreflang="en"
-                href="https://diegocarvalho.org/en/categories/"
+                hreflang="en-us"
+                href="https://diegomcarvalho.github.io/en/categories/"
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="pt"
-                href="https://diegocarvalho.org/pt/categories/"
+                hreflang="pt-br"
+                href="https://diegomcarvalho.github.io/pt/categories/"
                 />
   </url><url>
-    <loc>https://diegocarvalho.org/pt/category/ic/</loc>
+    <loc>https://diegomcarvalho.github.io/pt/category/ic/</loc>
     <lastmod>2022-09-05T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
-                hreflang="en"
-                href="https://diegocarvalho.org/en/category/ic/"
+                hreflang="en-us"
+                href="https://diegomcarvalho.github.io/en/category/ic/"
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="pt"
-                href="https://diegocarvalho.org/pt/category/ic/"
+                hreflang="pt-br"
+                href="https://diegomcarvalho.github.io/pt/category/ic/"
                 />
   </url><url>
-    <loc>https://diegocarvalho.org/pt/post/</loc>
+    <loc>https://diegomcarvalho.github.io/pt/post/</loc>
     <lastmod>2022-09-05T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
-                hreflang="en"
-                href="https://diegocarvalho.org/en/post/"
+                hreflang="en-us"
+                href="https://diegomcarvalho.github.io/en/post/"
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="pt"
-                href="https://diegocarvalho.org/pt/post/"
+                hreflang="pt-br"
+                href="https://diegomcarvalho.github.io/pt/post/"
                 />
   </url><url>
-    <loc>https://diegocarvalho.org/pt/post/getting-started/</loc>
+    <loc>https://diegomcarvalho.github.io/pt/post/getting-started/</loc>
     <lastmod>2022-09-05T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
-                hreflang="en"
-                href="https://diegocarvalho.org/en/post/getting-started/"
+                hreflang="en-us"
+                href="https://diegomcarvalho.github.io/en/post/getting-started/"
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="pt"
-                href="https://diegocarvalho.org/pt/post/getting-started/"
+                hreflang="pt-br"
+                href="https://diegomcarvalho.github.io/pt/post/getting-started/"
                 />
   </url><url>
-    <loc>https://diegocarvalho.org/pt/tags/</loc>
+    <loc>https://diegomcarvalho.github.io/pt/tags/</loc>
     <lastmod>2022-09-05T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
-                hreflang="en"
-                href="https://diegocarvalho.org/en/tags/"
+                hreflang="en-us"
+                href="https://diegomcarvalho.github.io/en/tags/"
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="pt"
-                href="https://diegocarvalho.org/pt/tags/"
+                hreflang="pt-br"
+                href="https://diegomcarvalho.github.io/pt/tags/"
                 />
   </url><url>
-    <loc>https://diegocarvalho.org/pt/category/covid/</loc>
+    <loc>https://diegomcarvalho.github.io/pt/category/covid/</loc>
     <lastmod>2022-09-05T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
-                hreflang="en"
-                href="https://diegocarvalho.org/en/category/covid/"
+                hreflang="en-us"
+                href="https://diegomcarvalho.github.io/en/category/covid/"
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="pt"
-                href="https://diegocarvalho.org/pt/category/covid/"
+                hreflang="pt-br"
+                href="https://diegomcarvalho.github.io/pt/category/covid/"
                 />
   </url><url>
-    <loc>https://diegocarvalho.org/pt/post/covid/</loc>
+    <loc>https://diegomcarvalho.github.io/pt/post/covid/</loc>
     <lastmod>2022-09-05T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
-                hreflang="en"
-                href="https://diegocarvalho.org/en/post/covid/"
+                hreflang="en-us"
+                href="https://diegomcarvalho.github.io/en/post/covid/"
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="pt"
-                href="https://diegocarvalho.org/pt/post/covid/"
+                hreflang="pt-br"
+                href="https://diegomcarvalho.github.io/pt/post/covid/"
                 />
   </url><url>
-    <loc>https://diegocarvalho.org/pt/category/pesquisa/</loc>
+    <loc>https://diegomcarvalho.github.io/pt/category/pesquisa/</loc>
     <lastmod>2022-09-05T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
-                hreflang="en"
-                href="https://diegocarvalho.org/en/category/pesquisa/"
+                hreflang="en-us"
+                href="https://diegomcarvalho.github.io/en/category/pesquisa/"
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="pt"
-                href="https://diegocarvalho.org/pt/category/pesquisa/"
+                hreflang="pt-br"
+                href="https://diegomcarvalho.github.io/pt/category/pesquisa/"
                 />
   </url><url>
-    <loc>https://diegocarvalho.org/pt/category/research/</loc>
+    <loc>https://diegomcarvalho.github.io/pt/category/research/</loc>
     <lastmod>2022-09-05T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
-                hreflang="en"
-                href="https://diegocarvalho.org/en/category/research/"
+                hreflang="en-us"
+                href="https://diegomcarvalho.github.io/en/category/research/"
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="pt"
-                href="https://diegocarvalho.org/pt/category/research/"
+                hreflang="pt-br"
+                href="https://diegomcarvalho.github.io/pt/category/research/"
                 />
   </url><url>
-    <loc>https://diegocarvalho.org/pt/slides/</loc>
+    <loc>https://diegomcarvalho.github.io/pt/slides/</loc>
     <lastmod>2019-02-05T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
-                hreflang="en"
-                href="https://diegocarvalho.org/en/slides/"
+                hreflang="en-us"
+                href="https://diegomcarvalho.github.io/en/slides/"
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="pt"
-                href="https://diegocarvalho.org/pt/slides/"
+                hreflang="pt-br"
+                href="https://diegomcarvalho.github.io/pt/slides/"
                 />
   </url><url>
-    <loc>https://diegocarvalho.org/pt/slides/example/</loc>
+    <loc>https://diegomcarvalho.github.io/pt/slides/example/</loc>
     <lastmod>2019-02-05T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
-                hreflang="en"
-                href="https://diegocarvalho.org/en/slides/example/"
+                hreflang="en-us"
+                href="https://diegomcarvalho.github.io/en/slides/example/"
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="pt"
-                href="https://diegocarvalho.org/pt/slides/example/"
+                hreflang="pt-br"
+                href="https://diegomcarvalho.github.io/pt/slides/example/"
                 />
   </url><url>
-    <loc>https://diegocarvalho.org/pt/tag/deep-learning/</loc>
+    <loc>https://diegomcarvalho.github.io/pt/tag/deep-learning/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
-                hreflang="en"
-                href="https://diegocarvalho.org/en/tag/deep-learning/"
+                hreflang="en-us"
+                href="https://diegomcarvalho.github.io/en/tag/deep-learning/"
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="pt"
-                href="https://diegocarvalho.org/pt/tag/deep-learning/"
+                hreflang="pt-br"
+                href="https://diegomcarvalho.github.io/pt/tag/deep-learning/"
                 />
   </url><url>
-    <loc>https://diegocarvalho.org/pt/project/example/</loc>
+    <loc>https://diegomcarvalho.github.io/pt/project/example/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
-                hreflang="en"
-                href="https://diegocarvalho.org/en/project/example/"
+                hreflang="en-us"
+                href="https://diegomcarvalho.github.io/en/project/example/"
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="pt"
-                href="https://diegocarvalho.org/pt/project/example/"
+                hreflang="pt-br"
+                href="https://diegomcarvalho.github.io/pt/project/example/"
                 />
   </url><url>
-    <loc>https://diegocarvalho.org/pt/project/</loc>
+    <loc>https://diegomcarvalho.github.io/pt/project/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
-                hreflang="en"
-                href="https://diegocarvalho.org/en/project/"
+                hreflang="en-us"
+                href="https://diegomcarvalho.github.io/en/project/"
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="pt"
-                href="https://diegocarvalho.org/pt/project/"
+                hreflang="pt-br"
+                href="https://diegomcarvalho.github.io/pt/project/"
                 />
   </url><url>
-    <loc>https://diegocarvalho.org/pt/publication-type/1/</loc>
+    <loc>https://diegomcarvalho.github.io/pt/publication-type/1/</loc>
     <lastmod>2013-07-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
-                hreflang="en"
-                href="https://diegocarvalho.org/en/publication-type/1/"
+                hreflang="en-us"
+                href="https://diegomcarvalho.github.io/en/publication-type/1/"
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="pt"
-                href="https://diegocarvalho.org/pt/publication-type/1/"
+                hreflang="pt-br"
+                href="https://diegomcarvalho.github.io/pt/publication-type/1/"
                 />
   </url><url>
-    <loc>https://diegocarvalho.org/pt/publication/example/</loc>
+    <loc>https://diegomcarvalho.github.io/pt/publication/example/</loc>
     <lastmod>2013-07-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
-                hreflang="en"
-                href="https://diegocarvalho.org/en/publication/example/"
+                hreflang="en-us"
+                href="https://diegomcarvalho.github.io/en/publication/example/"
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="pt"
-                href="https://diegocarvalho.org/pt/publication/example/"
+                hreflang="pt-br"
+                href="https://diegomcarvalho.github.io/pt/publication/example/"
                 />
   </url><url>
-    <loc>https://diegocarvalho.org/pt/publication_types/</loc>
+    <loc>https://diegomcarvalho.github.io/pt/publication_types/</loc>
     <lastmod>2013-07-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
-                hreflang="en"
-                href="https://diegocarvalho.org/en/publication_types/"
+                hreflang="en-us"
+                href="https://diegomcarvalho.github.io/en/publication_types/"
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="pt"
-                href="https://diegocarvalho.org/pt/publication_types/"
+                hreflang="pt-br"
+                href="https://diegomcarvalho.github.io/pt/publication_types/"
                 />
   </url><url>
-    <loc>https://diegocarvalho.org/pt/publication/</loc>
+    <loc>https://diegomcarvalho.github.io/pt/publication/</loc>
     <lastmod>2013-07-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
-                hreflang="en"
-                href="https://diegocarvalho.org/en/publication/"
+                hreflang="en-us"
+                href="https://diegomcarvalho.github.io/en/publication/"
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="pt"
-                href="https://diegocarvalho.org/pt/publication/"
+                hreflang="pt-br"
+                href="https://diegomcarvalho.github.io/pt/publication/"
                 />
   </url><url>
-    <loc>https://diegocarvalho.org/pt/admin/</loc>
+    <loc>https://diegomcarvalho.github.io/pt/admin/</loc>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
-                hreflang="en"
-                href="https://diegocarvalho.org/en/admin/"
+                hreflang="en-us"
+                href="https://diegomcarvalho.github.io/en/admin/"
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="pt"
-                href="https://diegocarvalho.org/pt/admin/"
+                hreflang="pt-br"
+                href="https://diegomcarvalho.github.io/pt/admin/"
                 />
   </url>
 </urlset>
