@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories | Academic</title>
+    <link>https://diegocarvalho.org/en/categories/</link>
+      <atom:link href="https://diegocarvalho.org/en/categories/index.xml" rel="self" type="application/rss+xml" />
+    <description>Categories</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>Copyright &amp;#169; 2022 Diego Carvalho. All rights reserved.</copyright><lastBuildDate>Mon, 05 Sep 2022 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://diegocarvalho.org/media/icon_hua8eb470e7d5d0355cbb465b31d572fa8_42297_512x512_fill_lanczos_center_3.png</url>
+      <title>Categories</title>
+      <link>https://diegocarvalho.org/en/categories/</link>
+    </image>
+    
+  </channel>
+</rss>

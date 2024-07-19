@@ -1,0 +1,624 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts | Academic</title>
+    <link>https://diegocarvalho.org/en/post/</link>
+      <atom:link href="https://diegocarvalho.org/en/post/index.xml" rel="self" type="application/rss+xml" />
+    <description>Posts</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>Copyright &amp;#169; 2022 Diego Carvalho. All rights reserved.</copyright><lastBuildDate>Sat, 03 Dec 2022 10:43:02 -0300</lastBuildDate>
+    <image>
+      <url>https://diegocarvalho.org/media/icon_hua8eb470e7d5d0355cbb465b31d572fa8_42297_512x512_fill_lanczos_center_3.png</url>
+      <title>Posts</title>
+      <link>https://diegocarvalho.org/en/post/</link>
+    </image>
+    
+    <item>
+      <title>Como explorar os dados do MOBLAB</title>
+      <link>https://diegocarvalho.org/en/post/busmobility/</link>
+      <pubDate>Sat, 03 Dec 2022 10:43:02 -0300</pubDate>
+      <guid>https://diegocarvalho.org/en/post/busmobility/</guid>
+      <description>&lt;h1 id=&#34;introdução&#34;&gt;Introdução&lt;/h1&gt;
+&lt;p&gt;Objetivos.&lt;/p&gt;
+&lt;h1 id=&#34;formato-dos-dados&#34;&gt;Formato dos dados&lt;/h1&gt;
+&lt;p&gt;Os dados coletados dos sistemas da Prefeitura do Rio de Janeiro&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; são filtrados para remoção de campos corrompidos ou duplicatas e os seguintes campos são utilizados como entrada de um &lt;em&gt;pipeline&lt;/em&gt; de reconstrução:&lt;/p&gt;
+&lt;div class=&#34;mermaid&#34;&gt;erDiagram
+  DATUM {
+    datetime  GPSTIMESTAMP  &#34;GMT-0 Date&#34;
+    string    BUSID         &#34;Número de ordem do veículo&#34;
+    string    LINE          &#34;Linha do serviço&#34;
+    double    LATITUDE      &#34;Latitude&#34;
+    double    LONGITUDE     &#34;Longitude&#34;
+    double    VELOCITY      &#34;Velocidade instantânea medida pelo GPS&#34;
+  }  
+&lt;/div&gt;
+&lt;p&gt;O &lt;em&gt;pipeline&lt;/em&gt; de reconstrução é mostrado na figura abaixo e cada etapa gera uma DST (Data Summary Table) que apresenta novos campos que representam o beneficiamento dos dados para análise e estudo da mobilidade urbana da cidade.&lt;/p&gt;
+&lt;div class=&#34;mermaid&#34;&gt;graph LR 
+    A --&gt; B
+    B --&gt; C
+    C --&gt; D
+    D --&gt; E
+&lt;/div&gt;
+&lt;p&gt;As etapas do &lt;em&gt;pipeline&lt;/em&gt; mostradas na figura acima adicionam os seguintes beneficiamentos nos dados do laboratório:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A - Dado filtrado (erros de aquisição, dado corrompido, etc), beneficiado com a elevação&lt;/li&gt;
+&lt;li&gt;B - Dado com a informação da região administrativa e bairro&lt;/li&gt;
+&lt;li&gt;C - Daco com a região pluviométrica&lt;/li&gt;
+&lt;li&gt;D - Dado com intervalo da amostra, distância percorrida, velocidade média, aceleração, inclinação&lt;/li&gt;
+&lt;li&gt;E - Dado com as emissões segundo o modelo de &lt;a href=&#34;http://dx.doi.org/10.1016/j.trd.2009.07.009&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Richmond&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;manipulação-de-dados&#34;&gt;Manipulação de dados&lt;/h1&gt;
+&lt;p&gt;Cada DST é armazenada no formato Parquet (&lt;a href=&#34;https://parquet.apache.org&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Apache Parquet&lt;/a&gt;) e pode ser manipulado no R, Python e outras linguagens de programação. Além das DTS com o beneficiamento, existem algumas DST que dão suporte a dados relacionados com o beneficiamento. Como exemplos, temos as DTS das regiões administrativas, regiões pluviométricas, bairros, etc. A seguir é mostrado os relacionamentos gerado pelo &lt;em&gt;pipeline&lt;/em&gt; de reconstrução.&lt;/p&gt;
+&lt;div class=&#34;mermaid&#34;&gt;erDiagram
+  DST-A ||--|| DST-B : x 
+  DST-A ||--|| DST-D : x 
+  DST-A ||--|| DST-E : x 
+  DST-A ||--|| DST-C : x 
+  REGADM ||--o{ DST-B : x
+  BAIRRO ||--o{ DST-B : x
+  PLMEREG ||--o{ DST-C :x
+&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Observação: Se uma linha das DSTs não apresentam REGADM, BAIRRO e PLMEREG, então, esse ponto está fora da Cidade do Rio de Janeiro, que pode significar um erro no geoposicionamento, ou que o veículo se encontrava fora do município.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;bibliotecas&#34;&gt;Bibliotecas&lt;/h2&gt;
+&lt;p&gt;Os dados foram estruturados para serem analisados em diversas linguagens de programação, incluindo Java, C++, Python, etc. Nesse manuscrito, mostraremos o uso em Python através das bibliotecas &lt;a href=&#34;https://numpy.org&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Numpy&lt;/a&gt;, &lt;a href=&#34;https://pandas.pydata.org&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Pandas&lt;/a&gt; e &lt;a href=&#34;https://geopandas.org/en/stable/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Geopandas&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;leitura-dos-dados&#34;&gt;Leitura dos dados&lt;/h2&gt;
+&lt;p&gt;Para ler os dados, o usuário deve importar as seguintes bibliotecas:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;numpy&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;np&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;pandas&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;pd&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;geopandas&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;gd&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Como primeiro exemplo, vamos ler os dados de uma DST-A com o código abaixo:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;df&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;pd&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;read_parquet&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;G1-2014-04-28.parquet&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;df&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;head&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;&lt;p style=&#34;color:blue;font-size:12px;&#34;&gt;ID&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;&lt;p style=&#34;color:blue;font-size:12px;&#34;&gt;DATE&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;&lt;p style=&#34;color:blue;font-size:12px;&#34;&gt;BUSID&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;&lt;p style=&#34;color:blue;font-size:12px;&#34;&gt;LINE&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;&lt;p style=&#34;color:blue;font-size:12px;&#34;&gt;LATITUDE&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;&lt;p style=&#34;color:blue;font-size:12px;&#34;&gt;LONGITUDE&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;&lt;p style=&#34;color:blue;font-size:12px;&#34;&gt;VELOCITY&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;&lt;p style=&#34;color:blue;font-size:12px;&#34;&gt;ELEVATION&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;&lt;p style=&#34;color:blue;font-size:12px;&#34;&gt;SWVERSION&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;p style=&#34;color:blue;font-size:11px;&#34;&gt; 0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;p style=&#34;color:blue;font-size:11px;&#34;&gt;04-28-2014 10:23:34&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;p style=&#34;color:blue;font-size:11px;&#34;&gt;B63045&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;p style=&#34;color:blue;font-size:11px;&#34;&gt;SV920&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;p style=&#34;color:blue;font-size:11px;&#34;&gt;-22.8358&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;p style=&#34;color:blue;font-size:11px;&#34;&gt;-43.3181&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;p style=&#34;color:blue;font-size:11px;&#34;&gt;39.63&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;p style=&#34;color:blue;font-size:11px;&#34;&gt;26&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;p style=&#34;color:blue;font-size:11px;&#34;&gt;78a5514&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;p style=&#34;color:blue;font-size:11px;&#34;&gt;1&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;p style=&#34;color:blue;font-size:11px;&#34;&gt;04-28-2014 07:15:19&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;p style=&#34;color:blue;font-size:11px;&#34;&gt;B11654&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;p style=&#34;color:blue;font-size:11px;&#34;&gt;908.0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;p style=&#34;color:blue;font-size:11px;&#34;&gt;-22.8773&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;p style=&#34;color:blue;font-size:11px;&#34;&gt;-43.3193&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;p style=&#34;color:blue;font-size:11px;&#34;&gt;35.37&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;p style=&#34;color:blue;font-size:11px;&#34;&gt;41&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;p style=&#34;color:blue;font-size:11px;&#34;&gt;78a5514&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;p style=&#34;color:blue;font-size:11px;&#34;&gt;2&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;p style=&#34;color:blue;font-size:11px;&#34;&gt;04-28-2014 14:39:36&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;p style=&#34;color:blue;font-size:11px;&#34;&gt;D86789&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;p style=&#34;color:blue;font-size:11px;&#34;&gt;2381.0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;p style=&#34;color:blue;font-size:11px;&#34;&gt;-22.9046&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;p style=&#34;color:blue;font-size:11px;&#34;&gt;-43.2103&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;p style=&#34;color:blue;font-size:11px;&#34;&gt;6.11&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;p style=&#34;color:blue;font-size:11px;&#34;&gt;12&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;p style=&#34;color:blue;font-size:11px;&#34;&gt;78a5514&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;p style=&#34;color:blue;font-size:11px;&#34;&gt;3&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;p style=&#34;color:blue;font-size:11px;&#34;&gt;04-28-2014 02:37:23&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;p style=&#34;color:blue;font-size:11px;&#34;&gt;B11613&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;p style=&#34;color:blue;font-size:11px;&#34;&gt;-22.866&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;p style=&#34;color:blue;font-size:11px;&#34;&gt;-43.3568&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;p style=&#34;color:blue;font-size:11px;&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;p style=&#34;color:blue;font-size:11px;&#34;&gt;20&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;p style=&#34;color:blue;font-size:11px;&#34;&gt;78a5514&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;p style=&#34;color:blue;font-size:11px;&#34;&gt;4&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;p style=&#34;color:blue;font-size:11px;&#34;&gt;04-28-2014 15:20:50&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;p style=&#34;color:blue;font-size:11px;&#34;&gt;C50151&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;p style=&#34;color:blue;font-size:11px;&#34;&gt;LECD06&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;p style=&#34;color:blue;font-size:11px;&#34;&gt;-22.9607&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;p style=&#34;color:blue;font-size:11px;&#34;&gt;-43.2705&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;p style=&#34;color:blue;font-size:11px;&#34;&gt;36.11&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;p style=&#34;color:blue;font-size:11px;&#34;&gt;354&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;p style=&#34;color:blue;font-size:11px;&#34;&gt;78a5514&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Na tabela acima, podemos ver os campos que estão armazenados na DST-A. O &lt;strong&gt;ID&lt;/strong&gt; é a chave primária que identifica a n-tupla em todas as DSTs. No caso de $ID = 0$, temos uma observação feita no dia 28 de abril de 2014, às 10h 23 minutos e 34 segundos. O veículo que enviou a informação foi o com &lt;strong&gt;BUSID&lt;/strong&gt; igual a B63045 e ele estava servindo a linha SV920. A geolocalização desse veículo era latitude igual a -22.8358 e longitude igual a -43.3181. A velocidade medida pelo GPS era de 39.63 km/h e nessa geolocalização a elevação é de 26 metros. A versão do &lt;em&gt;software&lt;/em&gt; que gerou essa DST foi a do repositório com versão igual a 78a5514.&lt;/p&gt;
+&lt;p&gt;No caso da n-tupla com &lt;em&gt;ID&lt;/em&gt; igual a 3, o veículo não tinha nenhuma linha de serviço registrada naquele momento.&lt;/p&gt;
+&lt;h2 id=&#34;visualização&#34;&gt;Visualização&lt;/h2&gt;
+&lt;p&gt;Os dados podem ser visualizados de diversas formas, contudo, temos usado a &lt;em&gt;frameworkd&lt;/em&gt; &lt;a href=&#34;https://holoviz.org&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Holoviz&lt;/a&gt; sobre o &lt;a href=&#34;https://bokeh.org&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Bokeh&lt;/a&gt; em Python para fazer as análises.&lt;/p&gt;
+&lt;p&gt;Para efeturar os gráficos, precisamos ler a DST como mostrado acima e carregar as seguintes bibliotecas.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;holoviews&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;hv&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;hvplot.pandas&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;holoviews&lt;/span&gt; &lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;opts&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;bokeh.plotting&lt;/span&gt; &lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;save&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;pd&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;options&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;plotting&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;backend&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;holoviews&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;hv&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;extension&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;bokeh&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;visualização-de-variáveis-gráficos&#34;&gt;Visualização de variáveis (gráficos)&lt;/h1&gt;
+&lt;p&gt;Para gerar histogramas, mostramos no exemplo abaixo como gerar o histograma da velocidade de um determinado veículo na base de dados que se encontra carregada no &lt;em&gt;Data Frame&lt;/em&gt; &lt;code&gt;df&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;df&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;df&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;BUSID&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;B63045&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;VELOCITY&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;hist&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;http://diegocarvalho.org/logbook/bbeb7e1d89e7c1e94fea48537fdcae43.png&#34; alt=&#34;histograma&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;Existe uma outra possibilidade que podemos juntar diversos histogramas na mesma imagem (ou HTML).&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;df&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;df&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;BUSID&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;B63045&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;hvplot&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;hist&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;ELEVATION&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;VELOCITY&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;http://diegocarvalho.org/logbook/52196dd3c966a5fd8b82470a505268e9.png&#34; alt=&#34;histograma&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;Outra possibilidade é fazer um &lt;a href=&#34;https://en.wikipedia.org/wiki/Box_plot&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Box Plot&lt;/a&gt; como mostrado abaixo.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;df&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;df&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;BUSID&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;B63045&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;hvplot&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;box&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;ELEVATION&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;http://diegocarvalho.org/logbook/7a31967328d0f26b35fa40b544343fa4.png&#34; alt=&#34;box plot&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;No caso de distribuições multimodais, podemos ver em gráficos violino (&lt;a href=&#34;https://en.wikipedia.org/wiki/Violin_plot&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;violin plots&lt;/a&gt;), como mostrado abaixo.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;df&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;df&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;BUSID&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;B63045&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;hvplot&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;violin&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;ELEVATION&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;http://diegocarvalho.org/logbook/11bc1d1affecbf9b5afe42e1babe1a8a.png&#34; alt=&#34;violin&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;Se precisamos ver a nuvem de pontos, existe o comando abaixo, onde indicamos as duas variáveis a ser plotadas.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;df&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;df&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;BUSID&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;B63045&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;hvplot&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;scatter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;ELEVATION&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;VELOCITY&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;http://diegocarvalho.org/logbook/9d3c1f354ee2734c812bd6b842fe2e8c.png&#34; alt=&#34;scatter&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;df&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;df&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;BUSID&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;B63045&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;hvplot&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;scatter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;DATE&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;ELEVATION&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;http://diegocarvalho.org/logbook/7e0c9fa1f441dcf4b8d96ae6acfbfdac.png&#34; alt=&#34;scatter&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;df&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;DATE&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;pd&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;to_datetime&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;df&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;DATE&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;df&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;df&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;BUSID&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;B63045&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;hvplot&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;scatter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;DATE&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;ELEVATION&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;http://diegocarvalho.org/logbook/39038483ac748c20363b5c0a2fd931d2.png&#34; alt=&#34;scatter&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;df&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;df&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;BUSID&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;isin&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;B63045&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;D86789&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])]&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;hvplot&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;scatter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;DATE&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;VELOCITY&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;by&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;BUSID&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;http://diegocarvalho.org/logbook/4cd8dd3760c3b7dd2ef08556da9ee724.png&#34; alt=&#34;scatter&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;Mais informações e gráficos,&lt;a href=&#34;https://hvplot.holoviz.org&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;nesse link&lt;/a&gt;.&lt;/p&gt;
+&lt;h1 id=&#34;visualização-de-dados-geoposicionados&#34;&gt;Visualização de dados geoposicionados&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;mostrar pontos com informação&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;h&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;df&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;df&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;BUSID&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;A37564&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;hvplot&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;points&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;LONGITUDE&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;LATITUDE&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;geo&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                     &lt;span class=&#34;n&#34;&gt;color&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;white&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                     &lt;span class=&#34;n&#34;&gt;size&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;50&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                     &lt;span class=&#34;n&#34;&gt;alpha&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;0.6&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                     &lt;span class=&#34;n&#34;&gt;tiles&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;EsriImagery&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                     &lt;span class=&#34;n&#34;&gt;hover_cols&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;BUSID&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;LINE&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;ELEVATION&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;opts&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;width&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;900&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;height&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;600&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;h&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;http://diegocarvalho.org/logbook/4cbe90c975902b3eea04a128b930e8c9.png&#34; alt=&#34;points&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;h&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;df&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;df&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;BUSID&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;A37564&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;hvplot&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;hexbin&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;LONGITUDE&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;LATITUDE&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;geo&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                     &lt;span class=&#34;n&#34;&gt;color&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;white&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                     &lt;span class=&#34;n&#34;&gt;size&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;50&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                     &lt;span class=&#34;n&#34;&gt;alpha&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;0.6&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                     &lt;span class=&#34;n&#34;&gt;tiles&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;EsriImagery&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;opts&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;width&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;900&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;height&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;600&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;h&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;http://diegocarvalho.org/logbook/774c7ab875090fe8f9b9a88ea93164bf.png&#34; alt=&#34;hexbin&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;Você pode optar por salvar em html da seguinte maneira:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;hv&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;save&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;h&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;hexbin.html&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;fmt&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;html&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;mostrar hexbins&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;agregação-dos-dados&#34;&gt;Agregação dos dados&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p style=&#34;color:red;&#34;&gt;Em construção&lt;/p&gt; Mostrar como juntar semanas, meses, etc.
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;conclusão&#34;&gt;Conclusão&lt;/h1&gt;
+&lt;h1 id=&#34;apendice-i&#34;&gt;Apendice I&lt;/h1&gt;
+&lt;p&gt;Nesse apêndice, apresento o dicionário de dados das DSTs.&lt;/p&gt;
+&lt;div class=&#34;mermaid&#34;&gt;erDiagram
+  
+  DST-A {
+    index     ID            &#34;Chave primária&#34;
+    datetime  GPSTIMESTAMP  &#34;GMT-0 Date&#34;
+    string    BUSID         &#34;Número de ordem do veículo&#34;
+    string    LINE          &#34;Linha do serviço&#34;
+    double    LATITUDE      &#34;Latitude&#34;
+    double    LONGITUDE     &#34;Longitude&#34;
+    double    VELOCITY      &#34;Velocidade instantânea medida pelo GPS&#34;
+    double    ELEVATION     &#34;Elevação da coordenada segundo o sensoriamento SMTR1&#34;
+    string    SWVERSION &#34;Versão do GIT COMMIT que gerou a DST&#34;
+  }
+  
+&lt;/div&gt;
+&lt;div class=&#34;mermaid&#34;&gt;erDiagram
+
+  DST-B {
+    index   ID
+    string  REGADM  &#34;Código da Região administrativa da CRJ&#34;
+    string  BAIRRO  &#34;Código do Bairro da CRJ&#34;
+    string  SWVERSION &#34;Versão do GIT COMMIT que gerou a DST&#34;
+  } 
+&lt;/div&gt;
+&lt;div class=&#34;mermaid&#34;&gt;erDiagram
+
+  DST-C {
+    index   ID
+    string  PLUVIOMETRICREG &#34;Código da Região pluviométrica da CRJ&#34;
+    string  SWVERSION &#34;Versão do GIT COMMIT que gerou a DST&#34;
+  }
+&lt;/div&gt;
+&lt;div class=&#34;mermaid&#34;&gt;erDiagram
+  DST-D {
+    index     ID
+    double    HDISTANCE       &#34;Haversine distance between two samples (km)&#34;
+    double    HEIGHT          &#34;SRTM1 height between two samples (km)&#34;
+    datetime  INTERVAL        &#34;Tempo decorrido entre a observação anterior e a atual (h)&#34;
+    double    DISTANCE        &#34;Distância 3D percorrida entre a observação atual e anterior (km)&#34;
+    double    SPEED           &#34;Velocidade média entre a observação anterior e a atual (km/h)&#34;
+    string    SWVERSION       &#34;Versão do GIT COMMIT que gerou a DST&#34;
+  }
+&lt;/div&gt;
+&lt;div class=&#34;mermaid&#34;&gt;erDiagram
+  DST-E {
+    index ID
+    double    CO              &#34;Quantidade de monóxido de carbono (g/s)&#34;
+    double    CO_2            &#34;Quantidade de dióxido de carbono (g/s)&#34;
+    double    NO_x            &#34;Quantidade de NO_x (g/s)&#34;
+    double    HC              &#34;Quantidade de HC (mg/s)&#34;
+    string    SWVERSION &#34;Versão do GIT COMMIT que gerou a DST&#34;
+  }
+&lt;/div&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;Via site do data.rio.&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Sugestões para os candidatos da iniciação científica 2022/2023</title>
+      <link>https://diegocarvalho.org/en/post/getting-started/</link>
+      <pubDate>Mon, 05 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>https://diegocarvalho.org/en/post/getting-started/</guid>
+      <description>&lt;h2 id=&#34;introdução&#34;&gt;Introdução&lt;/h2&gt;
+&lt;p&gt;Uma iniciação científica bem construída com problemas relevantes de pesquisa é um cartão de visitas fundamental para um postulante a um programa de pós-graduação, ou mesmo num processo seletivo de uma empresa. Na realidade, esse cartão de visitas indica a capacidade de um profissional desempenhar o melhor de sua habilitação superior: desenvolver uma solução de estado da arte, mostrando que é capaz de desenvolver novas técnicas, métodos, serviços ou produtos com o que existe de mais avançado no momento.&lt;/p&gt;
+&lt;p&gt;O primeiro passo para o ingresso em um programa de iniciação de pesquisa é a determinação de um tema de pesquisa. Na tentativa de contribuir com o processo de escolha do tema de pesquisa, este manuscrito apresentar algumas orientações para os candidatos ao edital do Programa Institucional de Bolsas de Iniciação Científica (PIBIC e PIBIC-EM) do Centro Federal de Educação Tecnológica Celso Suckow da Fonseca (Cefet/RJ) que desejem ser orientados por mim. No processo seletivo em questão, de acordo com o edital, o candidato necessita apresentar um projeto de pesquisa, onde um dos eixos a ser avaliado é a adequação do tema de pesquisa proposto ao orientador sugerido. Sem essa adequação, o resultado final é prejudicado e tem grandes chances de não se concretizar.&lt;/p&gt;
+&lt;p&gt;Nesse contexto, esse documento apresenta orientações gerais para os candidatos de maneira que eles possam maximizar especificamente a adequação do tema às minhas áreas de pesquisa, facilitando o trabalho dos candidatos e acelerando o processo da identificação de temas que estejam de acordo com os meus interesses de estudo.&lt;/p&gt;
+&lt;h2 id=&#34;habilidades-esperadas-nos-candidatos&#34;&gt;Habilidades esperadas nos candidatos&lt;/h2&gt;
+&lt;p&gt;Os candidatos que logram sucesso nos temas de pesquisa em que tenho trabalhado compartilham um conjunto de habilidades bem determinadas, que normalmente fazem parte da formação do engenheiro moderno, contudo, cabe salientar, que não me limito a orientação de engenheiros. Nos últimos anos, profissionais como matemáticos, estatísticos, cientistas da computação (de maneira geral formações relacionadas às TICs) e outros profissionais de forte formação em exatas têm logrado sucesso nessa empreitada, inclusive com o prosseguimento na pós-graduação.&lt;/p&gt;
+&lt;p&gt;De maneira geral, todos eles tinham um grupo de características que espero em todos os candidatos que aplicam ao mestrado e doutorado na área de engenharias, a saber:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;o domínio de uma linguagem de programação. Dentre as linguagens, &lt;em&gt;Python&lt;/em&gt; e &lt;em&gt;C++&lt;/em&gt; são as mais utilizadas nas pesquisas que desenvolvemos;&lt;/li&gt;
+&lt;li&gt;o domínio de uma língua estrangeira. O inglês é fundamental, pois toda a bibliografia do curso é nesse idioma, contudo, se expressar de forma escrita e falada em inglês (CEFR B2/C1) é necessário para a divulgação científica dos resultados. No caso dos alunos de doutorado, é necessário a proficiência em um outro idioma;&lt;/li&gt;
+&lt;li&gt;a manifestação de atitude &lt;em&gt;proativa&lt;/em&gt;. Essa atitude é fundamental na capacidade de se propor soluções para a resolução de problemas. Lembre-se: se você está aplicando ao PPPRO, você é um profissional de nível superior e se deseja um diploma de mestrado ou doutorado, você deve ser: (i) capaz de antecipar problemas; (ii) preparado para se concentrar na busca de soluções; (iii) qualificado para planejar o seu trabalho; (iv) preparado para priorizar suas tarefas e (v) não permitir que se acumulem tarefas.&lt;/li&gt;
+&lt;li&gt;o entendimento que não existe diferença entre o estudo na iniciação científica e na atividade profissional. As reuniões, os relatórios de trabalho, as cobranças são as mesmas e o seu desempenho vai ser medido e avaliado pelos entregáveis determinados pelos seus professores.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;temas-de-pesquisa&#34;&gt;Temas de pesquisa&lt;/h2&gt;
+&lt;p&gt;O projeto de iniciação vai ter aderência à minha pesquisa em torno de uma das áreas listadas abaixo. As referências são fundamentais e não se encerram em si, além de mostrar em mais detalhes as áreas existentes da minha pesquisa. Essas áreas são um pequeno exemplo dos assuntos em que tenho trabalhado.&lt;/p&gt;
+&lt;h3 id=&#34;mobilidade-urbana&#34;&gt;Mobilidade Urbana&lt;/h3&gt;
+&lt;p&gt;A mobilidade urbana é um tema recorrente na minha pesquisa e, em particular, as redes de transporte urbano são fundamentais para o desenvolvimento de grandes cidades. Nesse tema, análises com redes sociais&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;, integração de diferentes modais&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; já foram explorados, mas são temas que ainda se desenvolvem na minha pesquisa e novos temas surgem com interesse científico como os abordados em&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;p&gt;Outra linha que tenho desenvolvido na minha pesquisa está relacionada com a mineração de dados, onde analisamos as redes de transportes através de parâmetros operacionais para identificar fatores de possível otimização&lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;mineração-de-processos&#34;&gt;Mineração de processos&lt;/h3&gt;
+&lt;p&gt;A mineração de processos é uma área que vem se consolidando na Engenharia de Produção, principalmente com o extenso uso de sistemas de informação para controle e conformidade de processos empresariais. Nesse contexto, o uso de redes neurais podem ser utilizadas para a descoberta ou conformidade de processos empresariais através da mineração dos logs dos sistemas de informações&lt;sup id=&#34;fnref:5&#34;&gt;&lt;a href=&#34;#fn:5&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;5&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;redes-neurais-sem-peso&#34;&gt;Redes neurais sem peso&lt;/h3&gt;
+&lt;p&gt;Com o uso apresentado acima em Mobilidade Urbana e Mineração de processos, também tenho efetuado pesquisa especificamente em redes neurais sem peso (&lt;em&gt;per se&lt;/em&gt;) com o objetivo da extensão ou adaptação delas para solução de problemas específicos como os apresentados em&lt;sup id=&#34;fnref:6&#34;&gt;&lt;a href=&#34;#fn:6&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;6&lt;/a&gt;&lt;/sup&gt; &lt;sup id=&#34;fnref:7&#34;&gt;&lt;a href=&#34;#fn:7&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;7&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;p&gt;No último ano, com o desenvolvimento dessas redes e com a sua aplicação em problemas de regressão, também estou desenvolvendo pesquisa em novos problemas dessa área&lt;sup id=&#34;fnref:8&#34;&gt;&lt;a href=&#34;#fn:8&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;8&lt;/a&gt;&lt;/sup&gt; &lt;sup id=&#34;fnref:9&#34;&gt;&lt;a href=&#34;#fn:9&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;9&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;workflow-científicos&#34;&gt;Workflow científicos&lt;/h3&gt;
+&lt;p&gt;Outra área que continuo desenvolvendo desde o meu doutorado é o de &lt;em&gt;Workflow&lt;/em&gt; científicos (WC) na solução de diversos problemas. Nos últimos anos tenho desenvolvido o uso de WC na orquestração de recursos em supercomputadores, grandes &lt;em&gt;clusteres&lt;/em&gt; computacionais, &lt;em&gt;grids&lt;/em&gt; e &lt;em&gt;cloud&lt;/em&gt; &lt;sup id=&#34;fnref:10&#34;&gt;&lt;a href=&#34;#fn:10&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;10&lt;/a&gt;&lt;/sup&gt; &lt;sup id=&#34;fnref:11&#34;&gt;&lt;a href=&#34;#fn:11&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;11&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;informações-gerais&#34;&gt;Informações gerais&lt;/h2&gt;
+&lt;p&gt;O candidato pode me enviar mensagens para tirar algumas dúvidas sobre os temas e para sinalizar o interesse em concorrer ao edital de iniciação científica. Durante essa interação determinaremos o tema e o escopo do projeto.&lt;/p&gt;
+&lt;h2 id=&#34;agradecimentos&#34;&gt;Agradecimentos&lt;/h2&gt;
+&lt;p&gt;A minha pesquisa foi fomentada pela Comissão Europeia, CNPq, Capes, FAPERJ e recursos próprios do CEFET/RJ nos últimos anos. Contudo, tenho me preocupado com a redução significativa dos recursos disponíveis para a pós-graduação, pesquisa e inovação, principalmente no Brasil.&lt;/p&gt;
+&lt;h2 id=&#34;referências&#34;&gt;Referências&lt;/h2&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;L. Pumar, R. Barbastefano, and D. Carvalho, &lt;em&gt;“Bus transport network analysis in rio de janeiro based on topological models using social networks,”&lt;/em&gt; arXiv, vol. &lt;a href=&#34;http://arxiv.org/abs/1808.05692&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;link&lt;/a&gt;, 2018.&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;
+&lt;p&gt;J. H. de Moura, P. A. de Sousa, P. F. Wanke, R. G. Barbastefano, and D. M. de Araujo Carvalho, &lt;em&gt;“Análise da integração das bicicletas do sistema bike rio localizadas na zona sul do rio de janeiro com a rede de ônibus da cidade,”&lt;/em&gt; ENEGEP2017 - Encontro Nacional de Engenharia de Produção, nov 2017.&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:3&#34;&gt;
+&lt;p&gt;M. J. Basallo-Triana, C. J. Vidal-Holguín, and J. J. Bravo- Bastidas, &lt;em&gt;“Planning and design of intermodal hub networks: A literature review,”&lt;/em&gt; vol. 136, p. 105469.&amp;#160;&lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:4&#34;&gt;
+&lt;p&gt;L. Carvalho, A. Sternberg, L. Maia Gonçalves, A. Beatriz Cruz, J. A. Soares, D. Brandão, D. Carvalho, and E. Ogasawara, &lt;em&gt;“On the relevance of data science for flight delay research: a systematic review,”&lt;/em&gt; vol. 41, no. 4, pp. 499–528.&amp;#160;&lt;a href=&#34;#fnref:4&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:5&#34;&gt;
+&lt;p&gt;R. G. Barbastefano, D. M. de Araujo Carvalho, and M. C. Lippi, &lt;em&gt;“Process mining classification with a weightless neu- ral network,”&lt;/em&gt; in Industrial Engineering and Operations Management, pp. 349–356, Springer International Publishing, 2020.&amp;#160;&lt;a href=&#34;#fnref:5&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:6&#34;&gt;
+&lt;p&gt;R. Barbosa, D. O. Cardoso, D. Carvalho, and F. M. G. França, &lt;em&gt;“A neuro - symbolic approach to GPS trajectory classification,”&lt;/em&gt; pp. 26–28. ISBN: 9782875870391.&amp;#160;&lt;a href=&#34;#fnref:6&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:7&#34;&gt;
+&lt;p&gt;R. Barbosa, D. O. Cardoso, D. Carvalho, and F. M. França, &lt;em&gt;“Weightless neuro-symbolic GPS trajectory classification,”&lt;/em&gt; vol. 298, pp. 100–108.&amp;#160;&lt;a href=&#34;#fnref:7&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:8&#34;&gt;
+&lt;p&gt;L. A. Lusquino Filho, L. F. Oliveira, A. L. Filho, G. P. Guarisa, P. M. Lima, and F. M. França, &lt;em&gt;“Prediction of palm oil production with an enhanced n-tuple regression network,”&lt;/em&gt; pp. 301–306. ISBN: 9782875870650.&amp;#160;&lt;a href=&#34;#fnref:8&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:9&#34;&gt;
+&lt;p&gt;L. A. Lusquino Filho, L. F. Oliveira, A. L. Filho, G. P. Guarisa, L. M. Felix, P. M. Lima, and F. M. França, &lt;em&gt;“Extending the weightless WiSARD classifier for regression,”&lt;/em&gt; Publisher: Elsevier B.V.&amp;#160;&lt;a href=&#34;#fnref:9&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:10&#34;&gt;
+&lt;p&gt;R. Terra, M. Coelho, L. Cruz, M. Garcia-Zapata, L. Gadelha, C. Osthoff, D. Carvalho, and K. Ocaña, &lt;em&gt;“Gerência e análises de workflows aplicados a redes filogenéticas de genomas de dengue no brasil,”&lt;/em&gt; in Anais do XV Brazilian e-Science Workshop, (Porto Alegre, RS, Brasil), pp. 49–56, SBC, 2021.&amp;#160;&lt;a href=&#34;#fnref:10&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:11&#34;&gt;
+&lt;p&gt;L. Cruz, M. Coelho, R. Terra, D. Carvalho, L. Gadelha, C. Osthoff, and K. Ocaña, &lt;em&gt;“Workflows científicos de rna-seq em ambientes distribuídos de alto desempenho: Otimização de desempenho e análises de dados de expressão diferencial de genes,”&lt;/em&gt; in Anais do XV Brazilian e-Science Workshop, (Porto Alegre, RS, Brasil), pp. 57–64, SBC, 2021.&amp;#160;&lt;a href=&#34;#fnref:11&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Pandemia COVID-19</title>
+      <link>https://diegocarvalho.org/en/post/covid/</link>
+      <pubDate>Wed, 20 May 2020 00:00:00 +0000</pubDate>
+      <guid>https://diegocarvalho.org/en/post/covid/</guid>
+      <description>&lt;h2 id=&#34;nas-seções-abaixo-são-apresentadas-tópicos-sobre-o-diário-de-pesquisa&#34;&gt;Nas seções abaixo são apresentadas tópicos sobre o diário de pesquisa.&lt;/h2&gt;
+&lt;h3 id=&#34;dia-17-de-julho-de-2020&#34;&gt;Dia 17 de julho de 2020&lt;/h3&gt;
+&lt;p&gt;De posse dos dados do Ministério da Saúde com diversos atributos dos pacientes testados com suspeita de COVID-19, fizemos uma verificação de alguns casos conhecidos para entender como os casos se apresentavam na base.&lt;/p&gt;
+&lt;p&gt;A verificação foi feita com a comparação de casos conhecidos. Por exemplo, procuramos a data de nascimento do presidente da república na base e tentamos encontrar algum paciente com diagnóstico positivo através do PCR em alguma data em torno da data real do exame. Nos três primeiros casos que procuramos, nós não encontramos correspondentes.&lt;/p&gt;
+&lt;p&gt;Como a base também apresenta pacientes com teste negativo, fizemos o mesmo procedimento com alguns exames negativos e também não encontramos nenhum deles na base.&lt;/p&gt;
+&lt;p&gt;Mesmo não tendo a expectativa de se encontrar um exame negativo na base, ficamos preocupados com a inexistência dos testes positivos que deveriam pertencer a base de dados do Ministério da Saúde, pois a notificação é obrigatória.&lt;/p&gt;
+&lt;p&gt;Com esse pano de fundo, fizemos a seguinte pergunta: qual seria a curva de notificação (casos diagnosticados) se levássemos em consideração a curva de óbitos. Ou seja, qual seria a curva de casos acumulados compatível com a curva de óbitos que temos. Essa pergunta se baseia na premissa que por causa da burocracia própria que existe na ocorrência do óbito, a notificação compulsória do óbito teria maior chance de acontecer.&lt;/p&gt;
+&lt;p&gt;Na figura abaixo, nós apresentamos dados do Ministério da Saúde, onde os óbitos acumulados no Rio de Janeiro estão marcados em em preto no gráfico e os casos diagnosticados acumulados em azul. Já a curva laranja mostra a estimativa do casos acumulados diagnosticados que teríamos no RJ quando utilizamos o nosso modelo da COVID-19. Nessa curva temos um indicativo que chegamos na quantidade de casos que temos hoje (2020/07/17) há 49 dias e que a escalada de casos foi muito mais íngrime do que mostrariam os dados.&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Figura1&#34;
+           src=&#34;https://diegocarvalho.org/en/post/covid/Gnuplot.svg&#34;
+           loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+
+&lt;strong&gt;Figura1&lt;/strong&gt;: Casos acumulados no Basil (fonte: Ministério da Saúde) e resultado do modelo SARS-Cov-2-EDO-BR com previsão de 7 dias.&lt;/p&gt;
+&lt;p&gt;Além disso, ficamos consternados com a decisão da Prefeitura Municipal do Rio de Janeiro em mudar a forma de contagem de óbitos na cidade. Felizmente, na manhã de hoje (28 de maio de 2020), recebemos a notícial que a Defensoria Pública conseguiu que a prefeitura revesse a sua posição. Essa decisão era preocupante, pois como podemos observar no gráfico abaixo, o Estado do Rio de Janeiro apresenta a maior taxa de conversão em óibtos induzida pela COVID-19 e o município do Rio tem grande peso nos óbtitos contabilizados.&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Figura2&#34; srcset=&#34;
+               /en/post/covid/EDO-PARAM_hu052a973953e340bb95627e9903265958_126028_6e68e01719c6cd620a4812bea82a138f.webp 400w,
+               /en/post/covid/EDO-PARAM_hu052a973953e340bb95627e9903265958_126028_d8fece13e2a384269163cc54579c1e76.webp 760w,
+               /en/post/covid/EDO-PARAM_hu052a973953e340bb95627e9903265958_126028_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;https://diegocarvalho.org/en/post/covid/EDO-PARAM_hu052a973953e340bb95627e9903265958_126028_6e68e01719c6cd620a4812bea82a138f.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;395&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+
+&lt;strong&gt;Figura2&lt;/strong&gt;: Gráfico com o dD taxa de conversão em óbitos induzida pela COVID-19 nos diagnosticados. Resultado do ajuste do modelo SARS-Cov-2-EDO-BR em 2020-05-27 nos dados dos estados brasileiros.&lt;/p&gt;
+&lt;p&gt;A taxa de conversão em óbitos induzida pela COVID-19 nos diagnosticados indica a velocidade que o grupo de diagnosticados vão a óbito e serve para avaliar os efeitos de políticas desenvolvidas por agentes públicos, principalmente no Brasil onde se testa menos que 0,5% da população. Por causa disso, os modelos matemáticos podem ser uma das únicas ferramentas disponíveis para se avaliar o resultado das ações governamentais.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Academic</title>
+    <link>http://localhost:1313/pt/</link>
+      <atom:link href="http://localhost:1313/pt/index.xml" rel="self" type="application/rss+xml" />
+    <description>Academic</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>pt-br</language><lastBuildDate>Sat, 01 Jun 2030 13:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:1313/media/icon_hua8eb470e7d5d0355cbb465b31d572fa8_42297_512x512_fill_lanczos_center_3.png</url>
+      <title>Academic</title>
+      <link>http://localhost:1313/pt/</link>
+    </image>
+    
+    <item>
+      <title>Example Talk</title>
+      <link>http://localhost:1313/pt/talk/example-talk/</link>
+      <pubDate>Sat, 01 Jun 2030 13:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/pt/talk/example-talk/</guid>
+      <description>&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    Click on the &lt;strong&gt;Slides&lt;/strong&gt; button above to view the built-in slides feature.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Slides can be added in a few ways:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Create&lt;/strong&gt; slides using Wowchemy&amp;rsquo;s &lt;a href=&#34;https://wowchemy.com/docs/managing-content/#create-slides&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;em&gt;Slides&lt;/em&gt;&lt;/a&gt; feature and link using &lt;code&gt;slides&lt;/code&gt; parameter in the front matter of the talk file&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Upload&lt;/strong&gt; an existing slide deck to &lt;code&gt;static/&lt;/code&gt; and link using &lt;code&gt;url_slides&lt;/code&gt; parameter in the front matter of the talk file&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Embed&lt;/strong&gt; your slides (e.g. Google Slides) or presentation video on this page using &lt;a href=&#34;https://wowchemy.com/docs/writing-markdown-latex/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;shortcodes&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Further event details, including &lt;a href=&#34;https://wowchemy.com/docs/writing-markdown-latex/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;page elements&lt;/a&gt; such as image galleries, can be added to the body of this page.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Sugestões para os candidatos da iniciação científica 2022/2023</title>
+      <link>http://localhost:1313/pt/post/getting-started/</link>
+      <pubDate>Mon, 05 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/pt/post/getting-started/</guid>
+      <description>&lt;h2 id=&#34;introdução&#34;&gt;Introdução&lt;/h2&gt;
+&lt;p&gt;Uma iniciação científica bem construída com problemas relevantes de pesquisa é um cartão de visitas fundamental para um postulante a um programa de pós-graduação, ou mesmo num processo seletivo de uma empresa. Na realidade, esse cartão de visitas indica a capacidade de um profissional desempenhar o melhor de sua habilitação superior: desenvolver uma solução de estado da arte, mostrando que é capaz de desenvolver novas técnicas, métodos, serviços ou produtos com o que existe de mais avançado no momento.&lt;/p&gt;
+&lt;p&gt;O primeiro passo para o ingresso em um programa de iniciação de pesquisa é a determinação de um tema de pesquisa. Na tentativa de contribuir com o processo de escolha do tema de pesquisa, este manuscrito apresentar algumas orientações para os candidatos ao edital do Programa Institucional de Bolsas de Iniciação Científica (PIBIC e PIBIC-EM) do Centro Federal de Educação Tecnológica Celso Suckow da Fonseca (Cefet/RJ) que desejem ser orientados por mim. No processo seletivo em questão, de acordo com o edital, o candidato necessita apresentar um projeto de pesquisa, onde um dos eixos a ser avaliado é a adequação do tema de pesquisa proposto ao orientador sugerido. Sem essa adequação, o resultado final é prejudicado e tem grandes chances de não se concretizar.&lt;/p&gt;
+&lt;p&gt;Nesse contexto, esse documento apresenta orientações gerais para os candidatos de maneira que eles possam maximizar especificamente a adequação do tema às minhas áreas de pesquisa, facilitando o trabalho dos candidatos e acelerando o processo da identificação de temas que estejam de acordo com os meus interesses de estudo.&lt;/p&gt;
+&lt;h2 id=&#34;habilidades-esperadas-nos-candidatos&#34;&gt;Habilidades esperadas nos candidatos&lt;/h2&gt;
+&lt;p&gt;Os candidatos que logram sucesso nos temas de pesquisa em que tenho trabalhado compartilham um conjunto de habilidades bem determinadas, que normalmente fazem parte da formação do engenheiro moderno, contudo, cabe salientar, que não me limito a orientação de engenheiros. Nos últimos anos, profissionais como matemáticos, estatísticos, cientistas da computação (de maneira geral formações relacionadas às TICs) e outros profissionais de forte formação em exatas têm logrado sucesso nessa empreitada, inclusive com o prosseguimento na pós-graduação.&lt;/p&gt;
+&lt;p&gt;De maneira geral, todos eles tinham um grupo de características que espero em todos os candidatos que aplicam ao mestrado e doutorado na área de engenharias, a saber:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;o domínio de uma linguagem de programação. Dentre as linguagens, &lt;em&gt;Python&lt;/em&gt; e &lt;em&gt;C++&lt;/em&gt; são as mais utilizadas nas pesquisas que desenvolvemos;&lt;/li&gt;
+&lt;li&gt;o domínio de uma língua estrangeira. O inglês é fundamental, pois toda a bibliografia do curso é nesse idioma, contudo, se expressar de forma escrita e falada em inglês (CEFR B2/C1) é necessário para a divulgação científica dos resultados. No caso dos alunos de doutorado, é necessário a proficiência em um outro idioma;&lt;/li&gt;
+&lt;li&gt;a manifestação de atitude &lt;em&gt;proativa&lt;/em&gt;. Essa atitude é fundamental na capacidade de se propor soluções para a resolução de problemas. Lembre-se: se você está aplicando ao PPPRO, você é um profissional de nível superior e se deseja um diploma de mestrado ou doutorado, você deve ser: (i) capaz de antecipar problemas; (ii) preparado para se concentrar na busca de soluções; (iii) qualificado para planejar o seu trabalho; (iv) preparado para priorizar suas tarefas e (v) não permitir que se acumulem tarefas.&lt;/li&gt;
+&lt;li&gt;o entendimento que não existe diferença entre o estudo na iniciação científica e na atividade profissional. As reuniões, os relatórios de trabalho, as cobranças são as mesmas e o seu desempenho vai ser medido e avaliado pelos entregáveis determinados pelos seus professores.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;temas-de-pesquisa&#34;&gt;Temas de pesquisa&lt;/h2&gt;
+&lt;p&gt;O projeto de iniciação vai ter aderência à minha pesquisa em torno de uma das áreas listadas abaixo. As referências são fundamentais e não se encerram em si, além de mostrar em mais detalhes as áreas existentes da minha pesquisa. Essas áreas são um pequeno exemplo dos assuntos em que tenho trabalhado.&lt;/p&gt;
+&lt;h3 id=&#34;mobilidade-urbana&#34;&gt;Mobilidade Urbana&lt;/h3&gt;
+&lt;p&gt;A mobilidade urbana é um tema recorrente na minha pesquisa e, em particular, as redes de transporte urbano são fundamentais para o desenvolvimento de grandes cidades. Nesse tema, análises com redes sociais&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;, integração de diferentes modais&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; já foram explorados, mas são temas que ainda se desenvolvem na minha pesquisa e novos temas surgem com interesse científico como os abordados em&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;p&gt;Outra linha que tenho desenvolvido na minha pesquisa está relacionada com a mineração de dados, onde analisamos as redes de transportes através de parâmetros operacionais para identificar fatores de possível otimização&lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;mineração-de-processos&#34;&gt;Mineração de processos&lt;/h3&gt;
+&lt;p&gt;A mineração de processos é uma área que vem se consolidando na Engenharia de Produção, principalmente com o extenso uso de sistemas de informação para controle e conformidade de processos empresariais. Nesse contexto, o uso de redes neurais podem ser utilizadas para a descoberta ou conformidade de processos empresariais através da mineração dos logs dos sistemas de informações&lt;sup id=&#34;fnref:5&#34;&gt;&lt;a href=&#34;#fn:5&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;5&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;redes-neurais-sem-peso&#34;&gt;Redes neurais sem peso&lt;/h3&gt;
+&lt;p&gt;Com o uso apresentado acima em Mobilidade Urbana e Mineração de processos, também tenho efetuado pesquisa especificamente em redes neurais sem peso (&lt;em&gt;per se&lt;/em&gt;) com o objetivo da extensão ou adaptação delas para solução de problemas específicos como os apresentados em&lt;sup id=&#34;fnref:6&#34;&gt;&lt;a href=&#34;#fn:6&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;6&lt;/a&gt;&lt;/sup&gt; &lt;sup id=&#34;fnref:7&#34;&gt;&lt;a href=&#34;#fn:7&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;7&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;p&gt;No último ano, com o desenvolvimento dessas redes e com a sua aplicação em problemas de regressão, também estou desenvolvendo pesquisa em novos problemas dessa área&lt;sup id=&#34;fnref:8&#34;&gt;&lt;a href=&#34;#fn:8&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;8&lt;/a&gt;&lt;/sup&gt; &lt;sup id=&#34;fnref:9&#34;&gt;&lt;a href=&#34;#fn:9&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;9&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;workflow-científicos&#34;&gt;Workflow científicos&lt;/h3&gt;
+&lt;p&gt;Outra área que continuo desenvolvendo desde o meu doutorado é o de &lt;em&gt;Workflow&lt;/em&gt; científicos (WC) na solução de diversos problemas. Nos últimos anos tenho desenvolvido o uso de WC na orquestração de recursos em supercomputadores, grandes &lt;em&gt;clusteres&lt;/em&gt; computacionais, &lt;em&gt;grids&lt;/em&gt; e &lt;em&gt;cloud&lt;/em&gt; &lt;sup id=&#34;fnref:10&#34;&gt;&lt;a href=&#34;#fn:10&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;10&lt;/a&gt;&lt;/sup&gt; &lt;sup id=&#34;fnref:11&#34;&gt;&lt;a href=&#34;#fn:11&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;11&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;informações-gerais&#34;&gt;Informações gerais&lt;/h2&gt;
+&lt;p&gt;O candidato pode me enviar mensagens para tirar algumas dúvidas sobre os temas e para sinalizar o interesse em concorrer ao edital de iniciação científica. Durante essa interação determinaremos o tema e o escopo do projeto.&lt;/p&gt;
+&lt;h2 id=&#34;agradecimentos&#34;&gt;Agradecimentos&lt;/h2&gt;
+&lt;p&gt;A minha pesquisa foi fomentada pela Comissão Europeia, CNPq, Capes, FAPERJ e recursos próprios do CEFET/RJ nos últimos anos. Contudo, tenho me preocupado com a redução significativa dos recursos disponíveis para a pós-graduação, pesquisa e inovação, principalmente no Brasil.&lt;/p&gt;
+&lt;h2 id=&#34;referências&#34;&gt;Referências&lt;/h2&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;L. Pumar, R. Barbastefano, and D. Carvalho, &lt;em&gt;“Bus transport network analysis in rio de janeiro based on topological models using social networks,”&lt;/em&gt; arXiv, vol. &lt;a href=&#34;http://arxiv.org/abs/1808.05692&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;link&lt;/a&gt;, 2018.&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;
+&lt;p&gt;J. H. de Moura, P. A. de Sousa, P. F. Wanke, R. G. Barbastefano, and D. M. de Araujo Carvalho, &lt;em&gt;“Análise da integração das bicicletas do sistema bike rio localizadas na zona sul do rio de janeiro com a rede de ônibus da cidade,”&lt;/em&gt; ENEGEP2017 - Encontro Nacional de Engenharia de Produção, nov 2017.&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:3&#34;&gt;
+&lt;p&gt;M. J. Basallo-Triana, C. J. Vidal-Holguín, and J. J. Bravo- Bastidas, &lt;em&gt;“Planning and design of intermodal hub networks: A literature review,”&lt;/em&gt; vol. 136, p. 105469.&amp;#160;&lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:4&#34;&gt;
+&lt;p&gt;L. Carvalho, A. Sternberg, L. Maia Gonçalves, A. Beatriz Cruz, J. A. Soares, D. Brandão, D. Carvalho, and E. Ogasawara, &lt;em&gt;“On the relevance of data science for flight delay research: a systematic review,”&lt;/em&gt; vol. 41, no. 4, pp. 499–528.&amp;#160;&lt;a href=&#34;#fnref:4&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:5&#34;&gt;
+&lt;p&gt;R. G. Barbastefano, D. M. de Araujo Carvalho, and M. C. Lippi, &lt;em&gt;“Process mining classification with a weightless neu- ral network,”&lt;/em&gt; in Industrial Engineering and Operations Management, pp. 349–356, Springer International Publishing, 2020.&amp;#160;&lt;a href=&#34;#fnref:5&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:6&#34;&gt;
+&lt;p&gt;R. Barbosa, D. O. Cardoso, D. Carvalho, and F. M. G. França, &lt;em&gt;“A neuro - symbolic approach to GPS trajectory classification,”&lt;/em&gt; pp. 26–28. ISBN: 9782875870391.&amp;#160;&lt;a href=&#34;#fnref:6&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:7&#34;&gt;
+&lt;p&gt;R. Barbosa, D. O. Cardoso, D. Carvalho, and F. M. França, &lt;em&gt;“Weightless neuro-symbolic GPS trajectory classification,”&lt;/em&gt; vol. 298, pp. 100–108.&amp;#160;&lt;a href=&#34;#fnref:7&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:8&#34;&gt;
+&lt;p&gt;L. A. Lusquino Filho, L. F. Oliveira, A. L. Filho, G. P. Guarisa, P. M. Lima, and F. M. França, &lt;em&gt;“Prediction of palm oil production with an enhanced n-tuple regression network,”&lt;/em&gt; pp. 301–306. ISBN: 9782875870650.&amp;#160;&lt;a href=&#34;#fnref:8&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:9&#34;&gt;
+&lt;p&gt;L. A. Lusquino Filho, L. F. Oliveira, A. L. Filho, G. P. Guarisa, L. M. Felix, P. M. Lima, and F. M. França, &lt;em&gt;“Extending the weightless WiSARD classifier for regression,”&lt;/em&gt; Publisher: Elsevier B.V.&amp;#160;&lt;a href=&#34;#fnref:9&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:10&#34;&gt;
+&lt;p&gt;R. Terra, M. Coelho, L. Cruz, M. Garcia-Zapata, L. Gadelha, C. Osthoff, D. Carvalho, and K. Ocaña, &lt;em&gt;“Gerência e análises de workflows aplicados a redes filogenéticas de genomas de dengue no brasil,”&lt;/em&gt; in Anais do XV Brazilian e-Science Workshop, (Porto Alegre, RS, Brasil), pp. 49–56, SBC, 2021.&amp;#160;&lt;a href=&#34;#fnref:10&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:11&#34;&gt;
+&lt;p&gt;L. Cruz, M. Coelho, R. Terra, D. Carvalho, L. Gadelha, C. Osthoff, and K. Ocaña, &lt;em&gt;“Workflows científicos de rna-seq em ambientes distribuídos de alto desempenho: Otimização de desempenho e análises de dados de expressão diferencial de genes,”&lt;/em&gt; in Anais do XV Brazilian e-Science Workshop, (Porto Alegre, RS, Brasil), pp. 57–64, SBC, 2021.&amp;#160;&lt;a href=&#34;#fnref:11&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Pandemia COVID-19</title>
+      <link>http://localhost:1313/pt/post/covid/</link>
+      <pubDate>Wed, 20 May 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/pt/post/covid/</guid>
+      <description>&lt;h2 id=&#34;nas-seções-abaixo-são-apresentadas-tópicos-sobre-o-diário-de-pesquisa&#34;&gt;Nas seções abaixo são apresentadas tópicos sobre o diário de pesquisa.&lt;/h2&gt;
+&lt;h3 id=&#34;dia-17-de-julho-de-2020&#34;&gt;Dia 17 de julho de 2020&lt;/h3&gt;
+&lt;p&gt;De posse dos dados do Ministério da Saúde com diversos atributos dos pacientes testados com suspeita de COVID-19, fizemos uma verificação de alguns casos conhecidos para entender como os casos se apresentavam na base.&lt;/p&gt;
+&lt;p&gt;A verificação foi feita com a comparação de casos conhecidos. Por exemplo, procuramos a data de nascimento do presidente da república na base e tentamos encontrar algum paciente com diagnóstico positivo através do PCR em alguma data em torno da data real do exame. Nos três primeiros casos que procuramos, nós não encontramos correspondentes.&lt;/p&gt;
+&lt;p&gt;Como a base também apresenta pacientes com teste negativo, fizemos o mesmo procedimento com alguns exames negativos e também não encontramos nenhum deles na base.&lt;/p&gt;
+&lt;p&gt;Mesmo não tendo a expectativa de se encontrar um exame negativo na base, ficamos preocupados com a inexistência dos testes positivos que deveriam pertencer a base de dados do Ministério da Saúde, pois a notificação é obrigatória.&lt;/p&gt;
+&lt;p&gt;Com esse pano de fundo, fizemos a seguinte pergunta: qual seria a curva de notificação (casos diagnosticados) se levássemos em consideração a curva de óbitos. Ou seja, qual seria a curva de casos acumulados compatível com a curva de óbitos que temos. Essa pergunta se baseia na premissa que por causa da burocracia própria que existe na ocorrência do óbito, a notificação compulsória do óbito teria maior chance de acontecer.&lt;/p&gt;
+&lt;p&gt;Na figura abaixo, nós apresentamos dados do Ministério da Saúde, onde os óbitos acumulados no Rio de Janeiro estão marcados em em preto no gráfico e os casos diagnosticados acumulados em azul. Já a curva laranja mostra a estimativa do casos acumulados diagnosticados que teríamos no RJ quando utilizamos o nosso modelo da COVID-19. Nessa curva temos um indicativo que chegamos na quantidade de casos que temos hoje (2020/07/17) há 49 dias e que a escalada de casos foi muito mais íngrime do que mostrariam os dados.&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Figura1&#34;
+           src=&#34;http://localhost:1313/pt/post/covid/Gnuplot.svg&#34;
+           loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+
+&lt;strong&gt;Figura1&lt;/strong&gt;: Casos acumulados no Basil (fonte: Ministério da Saúde) e resultado do modelo SARS-Cov-2-EDO-BR com previsão de 7 dias.&lt;/p&gt;
+&lt;p&gt;Além disso, ficamos consternados com a decisão da Prefeitura Municipal do Rio de Janeiro em mudar a forma de contagem de óbitos na cidade. Felizmente, na manhã de hoje (28 de maio de 2020), recebemos a notícial que a Defensoria Pública conseguiu que a prefeitura revesse a sua posição. Essa decisão era preocupante, pois como podemos observar no gráfico abaixo, o Estado do Rio de Janeiro apresenta a maior taxa de conversão em óibtos induzida pela COVID-19 e o município do Rio tem grande peso nos óbtitos contabilizados.&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Figura2&#34; srcset=&#34;
+               /pt/post/covid/EDO-PARAM_hu052a973953e340bb95627e9903265958_126028_6e68e01719c6cd620a4812bea82a138f.webp 400w,
+               /pt/post/covid/EDO-PARAM_hu052a973953e340bb95627e9903265958_126028_d8fece13e2a384269163cc54579c1e76.webp 760w,
+               /pt/post/covid/EDO-PARAM_hu052a973953e340bb95627e9903265958_126028_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;http://localhost:1313/pt/post/covid/EDO-PARAM_hu052a973953e340bb95627e9903265958_126028_6e68e01719c6cd620a4812bea82a138f.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;395&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+
+&lt;strong&gt;Figura2&lt;/strong&gt;: Gráfico com o dD taxa de conversão em óbitos induzida pela COVID-19 nos diagnosticados. Resultado do ajuste do modelo SARS-Cov-2-EDO-BR em 2020-05-27 nos dados dos estados brasileiros.&lt;/p&gt;
+&lt;p&gt;A taxa de conversão em óbitos induzida pela COVID-19 nos diagnosticados indica a velocidade que o grupo de diagnosticados vão a óbito e serve para avaliar os efeitos de políticas desenvolvidas por agentes públicos, principalmente no Brasil onde se testa menos que 0,5% da população. Por causa disso, os modelos matemáticos podem ser uma das únicas ferramentas disponíveis para se avaliar o resultado das ações governamentais.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Slides</title>
+      <link>http://localhost:1313/pt/slides/example/</link>
+      <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/pt/slides/example/</guid>
+      <description>&lt;h1 id=&#34;create-slides-in-markdown-with-wowchemy&#34;&gt;Create slides in Markdown with Wowchemy&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://wowchemy.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Wowchemy&lt;/a&gt; | &lt;a href=&#34;https://wowchemy.com/docs/content/slides/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Documentation&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;features&#34;&gt;Features&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Efficiently write slides in Markdown&lt;/li&gt;
+&lt;li&gt;3-in-1: Create, Present, and Publish your slides&lt;/li&gt;
+&lt;li&gt;Supports speaker notes&lt;/li&gt;
+&lt;li&gt;Mobile friendly slides&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;controls&#34;&gt;Controls&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Next: &lt;code&gt;Right Arrow&lt;/code&gt; or &lt;code&gt;Space&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Previous: &lt;code&gt;Left Arrow&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Start: &lt;code&gt;Home&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Finish: &lt;code&gt;End&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Overview: &lt;code&gt;Esc&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Speaker notes: &lt;code&gt;S&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Fullscreen: &lt;code&gt;F&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Zoom: &lt;code&gt;Alt + Click&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://revealjs.com/pdf-export/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PDF Export&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;code-highlighting&#34;&gt;Code Highlighting&lt;/h2&gt;
+&lt;p&gt;Inline code: &lt;code&gt;variable&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Code block:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;porridge&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;blueberry&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;porridge&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;blueberry&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Eating...&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;math&#34;&gt;Math&lt;/h2&gt;
+&lt;p&gt;In-line math: $x + y = z$&lt;/p&gt;
+&lt;p&gt;Block math:&lt;/p&gt;
+&lt;p&gt;$$
+f\left( x \right) = ;\frac{{2\left( {x + 4} \right)\left( {x - 4} \right)}}{{\left( {x + 4} \right)\left( {x + 1} \right)}}
+$$&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;fragments&#34;&gt;Fragments&lt;/h2&gt;
+&lt;p&gt;Make content appear incrementally&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{{% fragment %}} One {{% /fragment %}}
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{{% fragment %}} **Two** {{% /fragment %}}
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{{% fragment %}} Three {{% /fragment %}}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Press &lt;code&gt;Space&lt;/code&gt; to play!&lt;/p&gt;
+&lt;span class=&#34;fragment &#34; &gt;
+  One
+&lt;/span&gt;
+&lt;span class=&#34;fragment &#34; &gt;
+  &lt;strong&gt;Two&lt;/strong&gt;
+&lt;/span&gt;
+&lt;span class=&#34;fragment &#34; &gt;
+  Three
+&lt;/span&gt;
+&lt;hr&gt;
+&lt;p&gt;A fragment can accept two optional parameters:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;class&lt;/code&gt;: use a custom style (requires definition in custom CSS)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;weight&lt;/code&gt;: sets the order in which a fragment appears&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;speaker-notes&#34;&gt;Speaker Notes&lt;/h2&gt;
+&lt;p&gt;Add speaker notes to your presentation&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{{% speaker_note %}}
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;-&lt;/span&gt; Only the speaker can read these notes
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;-&lt;/span&gt; Press &lt;span class=&#34;sb&#34;&gt;`S`&lt;/span&gt; key to view
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  {{% /speaker_note %}}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Press the &lt;code&gt;S&lt;/code&gt; key to view the speaker notes!&lt;/p&gt;
+&lt;aside class=&#34;notes&#34;&gt;
+  &lt;ul&gt;
+&lt;li&gt;Only the speaker can read these notes&lt;/li&gt;
+&lt;li&gt;Press &lt;code&gt;S&lt;/code&gt; key to view&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/aside&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;themes&#34;&gt;Themes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;black: Black background, white text, blue links (default)&lt;/li&gt;
+&lt;li&gt;white: White background, black text, blue links&lt;/li&gt;
+&lt;li&gt;league: Gray background, white text, blue links&lt;/li&gt;
+&lt;li&gt;beige: Beige background, dark text, brown links&lt;/li&gt;
+&lt;li&gt;sky: Blue background, thin dark text, blue links&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;night: Black background, thick white text, orange links&lt;/li&gt;
+&lt;li&gt;serif: Cappuccino background, gray text, brown links&lt;/li&gt;
+&lt;li&gt;simple: White background, black text, blue links&lt;/li&gt;
+&lt;li&gt;solarized: Cream-colored background, dark green text, blue links&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;section data-noprocess data-shortcode-slide
+  
+      
+      data-background-image=&#34;/media/boards.jpg&#34;
+  &gt;
+
+&lt;h2 id=&#34;custom-slide&#34;&gt;Custom Slide&lt;/h2&gt;
+&lt;p&gt;Customize the slide style and background&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{{&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;slide&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;background-image&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;/media/boards.jpg&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;}}
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{{&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;slide&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;background-color&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;#0000FF&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;}}
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{{&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;slide&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;my-style&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;}}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;custom-css-example&#34;&gt;Custom CSS Example&lt;/h2&gt;
+&lt;p&gt;Let&amp;rsquo;s make headers navy colored.&lt;/p&gt;
+&lt;p&gt;Create &lt;code&gt;assets/css/reveal_custom.css&lt;/code&gt; with:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-css&#34; data-lang=&#34;css&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nc&#34;&gt;reveal&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;section&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;h1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nc&#34;&gt;reveal&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;section&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;h2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nc&#34;&gt;reveal&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;section&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;h3&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;color&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;navy&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id=&#34;questions&#34;&gt;Questions?&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://discord.gg/z8wNYzb&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://wowchemy.com/docs/content/slides/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Documentation&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Example Project</title>
+      <link>http://localhost:1313/pt/project/example/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/pt/project/example/</guid>
+      <description>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam. Quisque risus orci, mollis id ante sit amet, gravida egestas nisl. Sed ac tempus magna. Proin in dui enim. Donec condimentum, sem id dapibus fringilla, tellus enim condimentum arcu, nec volutpat est felis vel metus. Vestibulum sit amet erat at nulla eleifend gravida.&lt;/p&gt;
+&lt;p&gt;Nullam vel molestie justo. Curabitur vitae efficitur leo. In hac habitasse platea dictumst. Sed pulvinar mauris dui, eget varius purus congue ac. Nulla euismod, lorem vel elementum dapibus, nunc justo porta mi, sed tempus est est vel tellus. Nam et enim eleifend, laoreet sem sit amet, elementum sem. Morbi ut leo congue, maximus velit ut, finibus arcu. In et libero cursus, rutrum risus non, molestie leo. Nullam congue quam et volutpat malesuada. Sed risus tortor, pulvinar et dictum nec, sodales non mi. Phasellus lacinia commodo laoreet. Nam mollis, erat in feugiat consectetur, purus eros egestas tellus, in auctor urna odio at nibh. Mauris imperdiet nisi ac magna convallis, at rhoncus ligula cursus.&lt;/p&gt;
+&lt;p&gt;Cras aliquam rhoncus ipsum, in hendrerit nunc mattis vitae. Duis vitae efficitur metus, ac tempus leo. Cras nec fringilla lacus. Quisque sit amet risus at ipsum pharetra commodo. Sed aliquam mauris at consequat eleifend. Praesent porta, augue sed viverra bibendum, neque ante euismod ante, in vehicula justo lorem ac eros. Suspendisse augue libero, venenatis eget tincidunt ut, malesuada at lorem. Donec vitae bibendum arcu. Aenean maximus nulla non pretium iaculis. Quisque imperdiet, nulla in pulvinar aliquet, velit quam ultrices quam, sit amet fringilla leo sem vel nunc. Mauris in lacinia lacus.&lt;/p&gt;
+&lt;p&gt;Suspendisse a tincidunt lacus. Curabitur at urna sagittis, dictum ante sit amet, euismod magna. Sed rutrum massa id tortor commodo, vitae elementum turpis tempus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean purus turpis, venenatis a ullamcorper nec, tincidunt et massa. Integer posuere quam rutrum arcu vehicula imperdiet. Mauris ullamcorper quam vitae purus congue, quis euismod magna eleifend. Vestibulum semper vel augue eget tincidunt. Fusce eget justo sodales, dapibus odio eu, ultrices lorem. Duis condimentum lorem id eros commodo, in facilisis mauris scelerisque. Morbi sed auctor leo. Nullam volutpat a lacus quis pharetra. Nulla congue rutrum magna a ornare.&lt;/p&gt;
+&lt;p&gt;Aliquam in turpis accumsan, malesuada nibh ut, hendrerit justo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque sed erat nec justo posuere suscipit. Donec ut efficitur arcu, in malesuada neque. Nunc dignissim nisl massa, id vulputate nunc pretium nec. Quisque eget urna in risus suscipit ultricies. Pellentesque odio odio, tincidunt in eleifend sed, posuere a diam. Nam gravida nisl convallis semper elementum. Morbi vitae felis faucibus, vulputate orci placerat, aliquet nisi. Aliquam erat volutpat. Maecenas sagittis pulvinar purus, sed porta quam laoreet at.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>An example conference paper</title>
+      <link>http://localhost:1313/pt/publication/example/</link>
+      <pubDate>Mon, 01 Jul 2013 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/pt/publication/example/</guid>
+      <description>&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    Click the &lt;em&gt;Cite&lt;/em&gt; button above to demo the feature to enable visitors to import publication metadata into their reference management software.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    Create your slides in Markdown - click the &lt;em&gt;Slides&lt;/em&gt; button to check out the example.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Supplementary notes can be added here, including &lt;a href=&#34;https://wowchemy.com/docs/writing-markdown-latex/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;code, math, and images&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:1313/pt/admin/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/pt/admin/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
