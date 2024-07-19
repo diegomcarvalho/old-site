@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Publication_types | Academic</title>
-    <link>http://localhost:1313/en/publication_types/</link>
-      <atom:link href="http://localhost:1313/en/publication_types/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://diegomcarvalho.github.io/en/publication_types/</link>
+      <atom:link href="https://diegomcarvalho.github.io/en/publication_types/index.xml" rel="self" type="application/rss+xml" />
     <description>Publication_types</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Mon, 01 Jul 2013 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:1313/media/icon_hua8eb470e7d5d0355cbb465b31d572fa8_42297_512x512_fill_lanczos_center_3.png</url>
+      <url>https://diegomcarvalho.github.io/media/icon_hua8eb470e7d5d0355cbb465b31d572fa8_42297_512x512_fill_lanczos_center_3.png</url>
       <title>Publication_types</title>
-      <link>http://localhost:1313/en/publication_types/</link>
+      <link>https://diegomcarvalho.github.io/en/publication_types/</link>
     </image>
     
   </channel>

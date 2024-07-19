@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Academic</title>
-    <link>http://localhost:1313/pt/tag/academic/</link>
-      <atom:link href="http://localhost:1313/pt/tag/academic/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://diegomcarvalho.github.io/pt/tag/academic/</link>
+      <atom:link href="https://diegomcarvalho.github.io/pt/tag/academic/index.xml" rel="self" type="application/rss+xml" />
     <description>Academic</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>pt-br</language><lastBuildDate>Mon, 05 Sep 2022 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:1313/media/icon_hua8eb470e7d5d0355cbb465b31d572fa8_42297_512x512_fill_lanczos_center_3.png</url>
+      <url>https://diegomcarvalho.github.io/media/icon_hua8eb470e7d5d0355cbb465b31d572fa8_42297_512x512_fill_lanczos_center_3.png</url>
       <title>Academic</title>
-      <link>http://localhost:1313/pt/tag/academic/</link>
+      <link>https://diegomcarvalho.github.io/pt/tag/academic/</link>
     </image>
     
     <item>
       <title>Sugestões para os candidatos da iniciação científica 2022/2023</title>
-      <link>http://localhost:1313/pt/post/getting-started/</link>
+      <link>https://diegomcarvalho.github.io/pt/post/getting-started/</link>
       <pubDate>Mon, 05 Sep 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/pt/post/getting-started/</guid>
+      <guid>https://diegomcarvalho.github.io/pt/post/getting-started/</guid>
       <description>&lt;h2 id=&#34;introdução&#34;&gt;Introdução&lt;/h2&gt;
 &lt;p&gt;Uma iniciação científica bem construída com problemas relevantes de pesquisa é um cartão de visitas fundamental para um postulante a um programa de pós-graduação, ou mesmo num processo seletivo de uma empresa. Na realidade, esse cartão de visitas indica a capacidade de um profissional desempenhar o melhor de sua habilitação superior: desenvolver uma solução de estado da arte, mostrando que é capaz de desenvolver novas técnicas, métodos, serviços ou produtos com o que existe de mais avançado no momento.&lt;/p&gt;
 &lt;p&gt;O primeiro passo para o ingresso em um programa de iniciação de pesquisa é a determinação de um tema de pesquisa. Na tentativa de contribuir com o processo de escolha do tema de pesquisa, este manuscrito apresentar algumas orientações para os candidatos ao edital do Programa Institucional de Bolsas de Iniciação Científica (PIBIC e PIBIC-EM) do Centro Federal de Educação Tecnológica Celso Suckow da Fonseca (Cefet/RJ) que desejem ser orientados por mim. No processo seletivo em questão, de acordo com o edital, o candidato necessita apresentar um projeto de pesquisa, onde um dos eixos a ser avaliado é a adequação do tema de pesquisa proposto ao orientador sugerido. Sem essa adequação, o resultado final é prejudicado e tem grandes chances de não se concretizar.&lt;/p&gt;
@@ -90,9 +90,9 @@
     
     <item>
       <title>Pandemia COVID-19</title>
-      <link>http://localhost:1313/pt/post/covid/</link>
+      <link>https://diegomcarvalho.github.io/pt/post/covid/</link>
       <pubDate>Wed, 20 May 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/pt/post/covid/</guid>
+      <guid>https://diegomcarvalho.github.io/pt/post/covid/</guid>
       <description>&lt;h2 id=&#34;nas-seções-abaixo-são-apresentadas-tópicos-sobre-o-diário-de-pesquisa&#34;&gt;Nas seções abaixo são apresentadas tópicos sobre o diário de pesquisa.&lt;/h2&gt;
 &lt;h3 id=&#34;dia-17-de-julho-de-2020&#34;&gt;Dia 17 de julho de 2020&lt;/h3&gt;
 &lt;p&gt;De posse dos dados do Ministério da Saúde com diversos atributos dos pacientes testados com suspeita de COVID-19, fizemos uma verificação de alguns casos conhecidos para entender como os casos se apresentavam na base.&lt;/p&gt;
@@ -120,7 +120,7 @@
 &lt;figure  &gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Figura1&#34;
-           src=&#34;http://localhost:1313/pt/post/covid/Gnuplot.svg&#34;
+           src=&#34;https://diegomcarvalho.github.io/pt/post/covid/Gnuplot.svg&#34;
            loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;/figure&gt;
 
@@ -148,7 +148,7 @@
                /pt/post/covid/EDO-PARAM_hu052a973953e340bb95627e9903265958_126028_6e68e01719c6cd620a4812bea82a138f.webp 400w,
                /pt/post/covid/EDO-PARAM_hu052a973953e340bb95627e9903265958_126028_d8fece13e2a384269163cc54579c1e76.webp 760w,
                /pt/post/covid/EDO-PARAM_hu052a973953e340bb95627e9903265958_126028_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
-               src=&#34;http://localhost:1313/pt/post/covid/EDO-PARAM_hu052a973953e340bb95627e9903265958_126028_6e68e01719c6cd620a4812bea82a138f.webp&#34;
+               src=&#34;https://diegomcarvalho.github.io/pt/post/covid/EDO-PARAM_hu052a973953e340bb95627e9903265958_126028_6e68e01719c6cd620a4812bea82a138f.webp&#34;
                width=&#34;760&#34;
                height=&#34;395&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
