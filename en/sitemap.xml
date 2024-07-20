@@ -2,333 +2,333 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/en/</loc>
+    <loc>https://diegomcarvalho.github.io/en/</loc>
     <lastmod>2030-06-01T13:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="http://localhost:1313/pt/"
+                href="https://diegomcarvalho.github.io/pt/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="http://localhost:1313/en/"
+                href="https://diegomcarvalho.github.io/en/"
                 />
   </url><url>
-    <loc>http://localhost:1313/en/talk/example-talk/</loc>
+    <loc>https://diegomcarvalho.github.io/en/talk/example-talk/</loc>
     <lastmod>2030-06-01T13:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="http://localhost:1313/pt/talk/example-talk/"
+                href="https://diegomcarvalho.github.io/pt/talk/example-talk/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="http://localhost:1313/en/talk/example-talk/"
+                href="https://diegomcarvalho.github.io/en/talk/example-talk/"
                 />
   </url><url>
-    <loc>http://localhost:1313/en/event/</loc>
+    <loc>https://diegomcarvalho.github.io/en/event/</loc>
     <lastmod>2030-06-01T13:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="http://localhost:1313/pt/event/"
+                href="https://diegomcarvalho.github.io/pt/event/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="http://localhost:1313/en/event/"
+                href="https://diegomcarvalho.github.io/en/event/"
                 />
   </url><url>
-    <loc>http://localhost:1313/en/post/rj_newinvest/</loc>
+    <loc>https://diegomcarvalho.github.io/en/post/rj_new_invest/</loc>
     <lastmod>2024-07-20T09:23:32-03:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/en/tag/info/</loc>
+    <loc>https://diegomcarvalho.github.io/en/tag/info/</loc>
     <lastmod>2024-07-20T09:23:32-03:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/en/post/</loc>
-    <lastmod>2024-07-20T09:23:32-03:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <xhtml:link
-                rel="alternate"
-                hreflang="pt-br"
-                href="http://localhost:1313/pt/post/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-us"
-                href="http://localhost:1313/en/post/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/en/tags/</loc>
+    <loc>https://diegomcarvalho.github.io/en/post/</loc>
     <lastmod>2024-07-20T09:23:32-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="http://localhost:1313/pt/tags/"
+                href="https://diegomcarvalho.github.io/pt/post/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="http://localhost:1313/en/tags/"
+                href="https://diegomcarvalho.github.io/en/post/"
                 />
   </url><url>
-    <loc>http://localhost:1313/en/tag/academic/</loc>
+    <loc>https://diegomcarvalho.github.io/en/tags/</loc>
+    <lastmod>2024-07-20T09:23:32-03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt-br"
+                href="https://diegomcarvalho.github.io/pt/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="https://diegomcarvalho.github.io/en/tags/"
+                />
+  </url><url>
+    <loc>https://diegomcarvalho.github.io/en/tag/academic/</loc>
     <lastmod>2022-09-05T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="http://localhost:1313/pt/tag/academic/"
+                href="https://diegomcarvalho.github.io/pt/tag/academic/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="http://localhost:1313/en/tag/academic/"
+                href="https://diegomcarvalho.github.io/en/tag/academic/"
                 />
   </url><url>
-    <loc>http://localhost:1313/en/categories/</loc>
+    <loc>https://diegomcarvalho.github.io/en/categories/</loc>
     <lastmod>2022-09-05T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="http://localhost:1313/pt/categories/"
+                href="https://diegomcarvalho.github.io/pt/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="http://localhost:1313/en/categories/"
+                href="https://diegomcarvalho.github.io/en/categories/"
                 />
   </url><url>
-    <loc>http://localhost:1313/en/category/ic/</loc>
+    <loc>https://diegomcarvalho.github.io/en/category/ic/</loc>
     <lastmod>2022-09-05T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="http://localhost:1313/pt/category/ic/"
+                href="https://diegomcarvalho.github.io/pt/category/ic/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="http://localhost:1313/en/category/ic/"
+                href="https://diegomcarvalho.github.io/en/category/ic/"
                 />
   </url><url>
-    <loc>http://localhost:1313/en/post/getting-started/</loc>
+    <loc>https://diegomcarvalho.github.io/en/post/getting-started/</loc>
     <lastmod>2022-09-05T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="http://localhost:1313/pt/post/getting-started/"
+                href="https://diegomcarvalho.github.io/pt/post/getting-started/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="http://localhost:1313/en/post/getting-started/"
+                href="https://diegomcarvalho.github.io/en/post/getting-started/"
                 />
   </url><url>
-    <loc>http://localhost:1313/en/category/covid/</loc>
+    <loc>https://diegomcarvalho.github.io/en/category/covid/</loc>
     <lastmod>2022-09-05T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="http://localhost:1313/pt/category/covid/"
+                href="https://diegomcarvalho.github.io/pt/category/covid/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="http://localhost:1313/en/category/covid/"
+                href="https://diegomcarvalho.github.io/en/category/covid/"
                 />
   </url><url>
-    <loc>http://localhost:1313/en/post/covid/</loc>
+    <loc>https://diegomcarvalho.github.io/en/post/covid/</loc>
     <lastmod>2022-09-05T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="http://localhost:1313/pt/post/covid/"
+                href="https://diegomcarvalho.github.io/pt/post/covid/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="http://localhost:1313/en/post/covid/"
+                href="https://diegomcarvalho.github.io/en/post/covid/"
                 />
   </url><url>
-    <loc>http://localhost:1313/en/category/pesquisa/</loc>
+    <loc>https://diegomcarvalho.github.io/en/category/pesquisa/</loc>
     <lastmod>2022-09-05T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="http://localhost:1313/pt/category/pesquisa/"
+                href="https://diegomcarvalho.github.io/pt/category/pesquisa/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="http://localhost:1313/en/category/pesquisa/"
+                href="https://diegomcarvalho.github.io/en/category/pesquisa/"
                 />
   </url><url>
-    <loc>http://localhost:1313/en/category/research/</loc>
+    <loc>https://diegomcarvalho.github.io/en/category/research/</loc>
     <lastmod>2022-09-05T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="http://localhost:1313/pt/category/research/"
+                href="https://diegomcarvalho.github.io/pt/category/research/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="http://localhost:1313/en/category/research/"
+                href="https://diegomcarvalho.github.io/en/category/research/"
                 />
   </url><url>
-    <loc>http://localhost:1313/en/slides/</loc>
+    <loc>https://diegomcarvalho.github.io/en/slides/</loc>
     <lastmod>2019-02-05T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="http://localhost:1313/pt/slides/"
+                href="https://diegomcarvalho.github.io/pt/slides/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="http://localhost:1313/en/slides/"
+                href="https://diegomcarvalho.github.io/en/slides/"
                 />
   </url><url>
-    <loc>http://localhost:1313/en/slides/example/</loc>
+    <loc>https://diegomcarvalho.github.io/en/slides/example/</loc>
     <lastmod>2019-02-05T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="http://localhost:1313/pt/slides/example/"
+                href="https://diegomcarvalho.github.io/pt/slides/example/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="http://localhost:1313/en/slides/example/"
+                href="https://diegomcarvalho.github.io/en/slides/example/"
                 />
   </url><url>
-    <loc>http://localhost:1313/en/tag/deep-learning/</loc>
+    <loc>https://diegomcarvalho.github.io/en/tag/deep-learning/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="http://localhost:1313/pt/tag/deep-learning/"
+                href="https://diegomcarvalho.github.io/pt/tag/deep-learning/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="http://localhost:1313/en/tag/deep-learning/"
+                href="https://diegomcarvalho.github.io/en/tag/deep-learning/"
                 />
   </url><url>
-    <loc>http://localhost:1313/en/project/example/</loc>
+    <loc>https://diegomcarvalho.github.io/en/project/example/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="http://localhost:1313/pt/project/example/"
+                href="https://diegomcarvalho.github.io/pt/project/example/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="http://localhost:1313/en/project/example/"
+                href="https://diegomcarvalho.github.io/en/project/example/"
                 />
   </url><url>
-    <loc>http://localhost:1313/en/project/</loc>
+    <loc>https://diegomcarvalho.github.io/en/project/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="http://localhost:1313/pt/project/"
+                href="https://diegomcarvalho.github.io/pt/project/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="http://localhost:1313/en/project/"
+                href="https://diegomcarvalho.github.io/en/project/"
                 />
   </url><url>
-    <loc>http://localhost:1313/en/publication-type/1/</loc>
+    <loc>https://diegomcarvalho.github.io/en/publication-type/1/</loc>
     <lastmod>2013-07-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="http://localhost:1313/pt/publication-type/1/"
+                href="https://diegomcarvalho.github.io/pt/publication-type/1/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="http://localhost:1313/en/publication-type/1/"
+                href="https://diegomcarvalho.github.io/en/publication-type/1/"
                 />
   </url><url>
-    <loc>http://localhost:1313/en/publication/example/</loc>
+    <loc>https://diegomcarvalho.github.io/en/publication/example/</loc>
     <lastmod>2013-07-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="http://localhost:1313/pt/publication/example/"
+                href="https://diegomcarvalho.github.io/pt/publication/example/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="http://localhost:1313/en/publication/example/"
+                href="https://diegomcarvalho.github.io/en/publication/example/"
                 />
   </url><url>
-    <loc>http://localhost:1313/en/publication_types/</loc>
+    <loc>https://diegomcarvalho.github.io/en/publication_types/</loc>
     <lastmod>2013-07-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="http://localhost:1313/pt/publication_types/"
+                href="https://diegomcarvalho.github.io/pt/publication_types/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="http://localhost:1313/en/publication_types/"
+                href="https://diegomcarvalho.github.io/en/publication_types/"
                 />
   </url><url>
-    <loc>http://localhost:1313/en/publication/</loc>
+    <loc>https://diegomcarvalho.github.io/en/publication/</loc>
     <lastmod>2013-07-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="http://localhost:1313/pt/publication/"
+                href="https://diegomcarvalho.github.io/pt/publication/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="http://localhost:1313/en/publication/"
+                href="https://diegomcarvalho.github.io/en/publication/"
                 />
   </url><url>
-    <loc>http://localhost:1313/en/admin/</loc>
+    <loc>https://diegomcarvalho.github.io/en/admin/</loc>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="http://localhost:1313/pt/admin/"
+                href="https://diegomcarvalho.github.io/pt/admin/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="http://localhost:1313/en/admin/"
+                href="https://diegomcarvalho.github.io/en/admin/"
                 />
   </url>
 </urlset>

@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts | Academic</title>
-    <link>http://localhost:1313/en/post/</link>
-      <atom:link href="http://localhost:1313/en/post/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://diegomcarvalho.github.io/en/post/</link>
+      <atom:link href="https://diegomcarvalho.github.io/en/post/index.xml" rel="self" type="application/rss+xml" />
     <description>Posts</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sat, 20 Jul 2024 09:23:32 -0300</lastBuildDate>
     <image>
-      <url>http://localhost:1313/media/icon_hua8eb470e7d5d0355cbb465b31d572fa8_42297_512x512_fill_lanczos_center_3.png</url>
+      <url>https://diegomcarvalho.github.io/media/icon_hua8eb470e7d5d0355cbb465b31d572fa8_42297_512x512_fill_lanczos_center_3.png</url>
       <title>Posts</title>
-      <link>http://localhost:1313/en/post/</link>
+      <link>https://diegomcarvalho.github.io/en/post/</link>
     </image>
     
     <item>
       <title>Aumento nos pedidos de residência no Brasil</title>
-      <link>http://localhost:1313/en/post/rj_new_invest/rj_newinvest/</link>
+      <link>https://diegomcarvalho.github.io/en/post/rj_new_invest/</link>
       <pubDate>Sat, 20 Jul 2024 09:23:32 -0300</pubDate>
-      <guid>http://localhost:1313/en/post/rj_new_invest/rj_newinvest/</guid>
-      <description>&lt;p&gt;Ocorreu um aumento nos pedidos de autorização de &lt;strong&gt;residência&lt;/strong&gt; de estrangeiros para &lt;strong&gt;trabalho&lt;/strong&gt; e &lt;strong&gt;investimento&lt;/strong&gt; no Brasil, no fim de junho como podemos ver no gráfico abaixo.&lt;/p&gt;
+      <guid>https://diegomcarvalho.github.io/en/post/rj_new_invest/</guid>
+      <description>&lt;p&gt;Ocorreu um aumento nos pedidos de autorização de &lt;strong&gt;residência&lt;/strong&gt; de estrangeiros para &lt;strong&gt;trabalho&lt;/strong&gt; e &lt;strong&gt;investimento&lt;/strong&gt; no Brasil, no fim de junho como podemos ver no gráfico abaixo que apresenta só os dados do primeiro semestre. Isso pode ser um indicativo que a economia está se tornando atrativa para os investidores estrangeiros.&lt;/p&gt;
 &lt;p&gt;
 
 
@@ -36,7 +36,43 @@
 
 &lt;figure  &gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;grafico_invest.png&#34; alt=&#34;Investimento&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Investimento&#34; srcset=&#34;
+               /en/post/rj_new_invest/grafico_invest_hu304da77e1c381b91ccc7913cc48570b7_37082_c47da5f8b5ed23e4aa9e39e4367d4227.webp 400w,
+               /en/post/rj_new_invest/grafico_invest_hu304da77e1c381b91ccc7913cc48570b7_37082_ce1947eb710e8c6f989cfe92cc265ade.webp 760w,
+               /en/post/rj_new_invest/grafico_invest_hu304da77e1c381b91ccc7913cc48570b7_37082_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;https://diegomcarvalho.github.io/en/post/rj_new_invest/grafico_invest_hu304da77e1c381b91ccc7913cc48570b7_37082_c47da5f8b5ed23e4aa9e39e4367d4227.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;391&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;Olhando os dados do ano passado inteiro, onde tivemos 29.627 registros, os principais destinos de trabalho dos imigrantes foram os estados do Rio de Janeiro (11.924) e São Paulo (10.657), que juntos representam 76,2% do total. Na sequência vieram Paraná (1.622), Minas Gerais (1.247), Bahia (819), Santa Catarina (556), Amazonas (415), Ceará (336), Distrito Federal (325) e Rio Grande do Sul (298). Já a origem dos imigrantes é mostrada no gráfico abaixo.&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Origem&#34; srcset=&#34;
+               /en/post/rj_new_invest/assets/image-20240720095903801_huecfa7c65ef103b45ec488d2406a4ba65_49067_1505af4759b1a176da7f7d705d2903d2.webp 400w,
+               /en/post/rj_new_invest/assets/image-20240720095903801_huecfa7c65ef103b45ec488d2406a4ba65_49067_e5dcdd58a46c8ad83588ba1696b49605.webp 760w,
+               /en/post/rj_new_invest/assets/image-20240720095903801_huecfa7c65ef103b45ec488d2406a4ba65_49067_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;https://diegomcarvalho.github.io/en/post/rj_new_invest/assets/image-20240720095903801_huecfa7c65ef103b45ec488d2406a4ba65_49067_1505af4759b1a176da7f7d705d2903d2.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;391&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;/figure&gt;
 &lt;/p&gt;
 </description>
@@ -44,9 +80,9 @@
     
     <item>
       <title>Sugestões para os candidatos da iniciação científica 2022/2023</title>
-      <link>http://localhost:1313/en/post/getting-started/</link>
+      <link>https://diegomcarvalho.github.io/en/post/getting-started/</link>
       <pubDate>Mon, 05 Sep 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/en/post/getting-started/</guid>
+      <guid>https://diegomcarvalho.github.io/en/post/getting-started/</guid>
       <description>&lt;h2 id=&#34;introdução&#34;&gt;Introdução&lt;/h2&gt;
 &lt;p&gt;Uma iniciação científica bem construída com problemas relevantes de pesquisa é um cartão de visitas fundamental para um postulante a um programa de pós-graduação, ou mesmo num processo seletivo de uma empresa. Na realidade, esse cartão de visitas indica a capacidade de um profissional desempenhar o melhor de sua habilitação superior: desenvolver uma solução de estado da arte, mostrando que é capaz de desenvolver novas técnicas, métodos, serviços ou produtos com o que existe de mais avançado no momento.&lt;/p&gt;
 &lt;p&gt;O primeiro passo para o ingresso em um programa de iniciação de pesquisa é a determinação de um tema de pesquisa. Na tentativa de contribuir com o processo de escolha do tema de pesquisa, este manuscrito apresentar algumas orientações para os candidatos ao edital do Programa Institucional de Bolsas de Iniciação Científica (PIBIC e PIBIC-EM) do Centro Federal de Educação Tecnológica Celso Suckow da Fonseca (Cefet/RJ) que desejem ser orientados por mim. No processo seletivo em questão, de acordo com o edital, o candidato necessita apresentar um projeto de pesquisa, onde um dos eixos a ser avaliado é a adequação do tema de pesquisa proposto ao orientador sugerido. Sem essa adequação, o resultado final é prejudicado e tem grandes chances de não se concretizar.&lt;/p&gt;
@@ -120,9 +156,9 @@
     
     <item>
       <title>Pandemia COVID-19</title>
-      <link>http://localhost:1313/en/post/covid/</link>
+      <link>https://diegomcarvalho.github.io/en/post/covid/</link>
       <pubDate>Wed, 20 May 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/en/post/covid/</guid>
+      <guid>https://diegomcarvalho.github.io/en/post/covid/</guid>
       <description>&lt;h2 id=&#34;nas-seções-abaixo-são-apresentadas-tópicos-sobre-o-diário-de-pesquisa&#34;&gt;Nas seções abaixo são apresentadas tópicos sobre o diário de pesquisa.&lt;/h2&gt;
 &lt;h3 id=&#34;dia-17-de-julho-de-2020&#34;&gt;Dia 17 de julho de 2020&lt;/h3&gt;
 &lt;p&gt;De posse dos dados do Ministério da Saúde com diversos atributos dos pacientes testados com suspeita de COVID-19, fizemos uma verificação de alguns casos conhecidos para entender como os casos se apresentavam na base.&lt;/p&gt;
@@ -150,7 +186,7 @@
 &lt;figure  &gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Figura1&#34;
-           src=&#34;http://localhost:1313/en/post/covid/Gnuplot.svg&#34;
+           src=&#34;https://diegomcarvalho.github.io/en/post/covid/Gnuplot.svg&#34;
            loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;/figure&gt;
 
@@ -178,7 +214,7 @@
                /en/post/covid/EDO-PARAM_hu052a973953e340bb95627e9903265958_126028_6e68e01719c6cd620a4812bea82a138f.webp 400w,
                /en/post/covid/EDO-PARAM_hu052a973953e340bb95627e9903265958_126028_d8fece13e2a384269163cc54579c1e76.webp 760w,
                /en/post/covid/EDO-PARAM_hu052a973953e340bb95627e9903265958_126028_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
-               src=&#34;http://localhost:1313/en/post/covid/EDO-PARAM_hu052a973953e340bb95627e9903265958_126028_6e68e01719c6cd620a4812bea82a138f.webp&#34;
+               src=&#34;https://diegomcarvalho.github.io/en/post/covid/EDO-PARAM_hu052a973953e340bb95627e9903265958_126028_6e68e01719c6cd620a4812bea82a138f.webp&#34;
                width=&#34;760&#34;
                height=&#34;395&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
