@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Info | Academic</title>
+    <link>http://localhost:1313/en/tag/info/</link>
+      <atom:link href="http://localhost:1313/en/tag/info/index.xml" rel="self" type="application/rss+xml" />
+    <description>Info</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sat, 20 Jul 2024 09:23:32 -0300</lastBuildDate>
+    <image>
+      <url>http://localhost:1313/media/icon_hua8eb470e7d5d0355cbb465b31d572fa8_42297_512x512_fill_lanczos_center_3.png</url>
+      <title>Info</title>
+      <link>http://localhost:1313/en/tag/info/</link>
+    </image>
+    
+    <item>
+      <title>Aumento nos pedidos de residência no Brasil</title>
+      <link>http://localhost:1313/en/post/rj_newinvest/</link>
+      <pubDate>Sat, 20 Jul 2024 09:23:32 -0300</pubDate>
+      <guid>http://localhost:1313/en/post/rj_newinvest/</guid>
+      <description>&lt;p&gt;Ocorreu um aumento nos pedidos de autorização de &lt;strong&gt;residência&lt;/strong&gt; de estrangeiros para &lt;strong&gt;trabalho&lt;/strong&gt; e &lt;strong&gt;investimento&lt;/strong&gt; no Brasil, no fim de junho como podemos ver no gráfico abaixo.&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;assets/image-20240720092937743.png&#34; alt=&#34;image-20240720092937743&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
